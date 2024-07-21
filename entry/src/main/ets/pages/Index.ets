@@ -9,6 +9,8 @@ struct Index {
         Text(this.message)
           .fontSize(50)
           .fontWeight(FontWeight.Bold)
+        Image($r('app.media.ic_tab_home'))
+          .size({ width: 56, height: 56 })
       }
       .width('100%')
     }

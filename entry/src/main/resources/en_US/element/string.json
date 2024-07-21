@@ -11,6 +11,26 @@
     {
       "name": "EntryAbility_label",
       "value": "label"
+    },
+    {
+      "name": "home",
+      "value": "Home"
+    },
+    {
+      "name": "square",
+      "value": "Square"
+    },
+    {
+      "name": "system",
+      "value": "System"
+    },
+    {
+      "name": "official_account",
+      "value": "Official account"
+    },
+    {
+      "name": "projects",
+      "value": "Projects"
     }
   ]
 }

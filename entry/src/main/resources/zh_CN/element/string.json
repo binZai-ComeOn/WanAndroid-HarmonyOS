@@ -11,6 +11,26 @@
     {
       "name": "EntryAbility_label",
       "value": "label"
+    },
+    {
+      "name": "home",
+      "value": "首页"
+    },
+    {
+      "name": "square",
+      "value": "广场"
+    },
+    {
+      "name": "system",
+      "value": "体系"
+    },
+    {
+      "name": "official_account",
+      "value": "公众号"
+    },
+    {
+      "name": "projects",
+      "value": "项目"
     }
   ]
 }
