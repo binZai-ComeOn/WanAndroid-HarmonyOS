@@ -3,6 +3,114 @@
     {
       "name": "start_window_background",
       "value": "#FFFFFF"
+    },
+    {
+      "name": "current_color",
+      "value": "#3388ff"
+    },
+    {
+      "name": "tab_color",
+      "value": "#F3F4F5"
+    },
+    {
+      "name": "text_color",
+      "value": "#E6000000"
+    },
+    {
+      "name": "checked_color",
+      "value": "#0A59F7"
+    },
+    {
+      "name": "back_color",
+      "value": "#0D000000"
+    },
+    {
+      "name": "current_list_color",
+      "value": "#1A0A59F7"
+    },
+    {
+      "name": "list_background_color",
+      "value": "#E9EAEC"
+    },
+    {
+      "name": "content_background_color",
+      "value": "#c1c2c4"
+    },
+    {
+      "name": "side_background_color",
+      "value": "#F1F3F5"
+    },
+    {
+      "name": "side_selected_color",
+      "value": "#182431"
+    },
+    {
+      "name": "side_text_color",
+      "value": "#99182431"
+    },
+    {
+      "name": "side_content_color",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "index_background_color",
+      "value": "#f0f3f7"
+    },
+    {
+      "name": "index_divider_color",
+      "value": "#0D000000"
+    },
+    {
+      "name": "index_text_color",
+      "value": "#99000000"
+    },
+    {
+      "name": "tab_white",
+      "value": "#66FFFFFF"
+    },
+    {
+      "name": "tab_click_color",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "tab_row_background",
+      "value": "#FF000000"
+    },
+    {
+      "name": "tab_black",
+      "value": "#FF000000"
+    },
+    {
+      "name": "tab_up_color",
+      "value": "#FF3300"
+    },
+    {
+      "name": "tab_font_color",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "tab_play_time_text_color",
+      "value": "#ffffff"
+    },
+    {
+      "name": "tab_total_time_text_color",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "tab_text1_background_color",
+      "value": "#804E4C4D"
+    },
+    {
+      "name": "tab_text2_background_color",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "tab_time_text_font_color",
+      "value": "#BBBBBB"
+    },
+    {
+      "name": "tab_gray_background_color",
+      "value": "#32292A"
     }
   ]
 }

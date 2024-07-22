@@ -1,0 +1,20 @@
+{
+  "integer": [
+    {
+      "name": "swiper_padding_left",
+      "value": 20
+    },
+    {
+      "name": "swiper_padding_right",
+      "value": 20
+    },
+    {
+      "name": "image_borderRadius",
+      "value": 10
+    },
+    {
+      "name": "image_margin_top",
+      "value": 20
+    }
+  ]
+}

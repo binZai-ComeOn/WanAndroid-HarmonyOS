@@ -1,0 +1,144 @@
+{
+  "float": [
+    {
+      "name": "mainPage_baseTab_size",
+      "value": "24vp"
+    },
+    {
+      "name": "mainPage_baseTab_top",
+      "value": "4vp"
+    },
+    {
+      "name": "mainPage_barHeight",
+      "value": "52vp"
+    },
+    {
+      "name": "rudder_barHeight",
+      "value": "90vp"
+    },
+    {
+      "name": "tab_text_font_size",
+      "value": "10fp"
+    },
+    {
+      "name": "content_font_size",
+      "value": "30fp"
+    },
+    {
+      "name": "title_font_size",
+      "value": "30fp"
+    },
+    {
+      "name": "text_size",
+      "value": "16fp"
+    },
+    {
+      "name": "double_text_size",
+      "value": "18fp"
+    },
+    {
+      "name": "current_text_size",
+      "value": "20fp"
+    },
+    {
+      "name": "back_text_size",
+      "value": "14fp"
+    },
+    {
+      "name": "text_line_height",
+      "value": "22vp"
+    },
+    {
+      "name": "divider_width",
+      "value": "48vp"
+    },
+    {
+      "name": "opacity_1",
+      "value": "1"
+    },
+    {
+      "name": "opacity_0",
+      "value": "0"
+    },
+    {
+      "name": "list_friction",
+      "value": "0.6"
+    },
+    {
+      "name": "size_text",
+      "value": "16vp"
+    },
+    {
+      "name": "margin_drawer_list",
+      "value": "4vp"
+    },
+    {
+      "name": "margin_tab_text",
+      "value": "6vp"
+    },
+    {
+      "name": "margin_under_tab",
+      "value": "7vp"
+    },
+    {
+      "name": "margin_eight",
+      "value": "8vp"
+    },
+    {
+      "name": "margin_index_top",
+      "value": "14vp"
+    },
+    {
+      "name": "margin_sixteen",
+      "value": "16vp"
+    },
+    {
+      "name": "margin_list",
+      "value": "17vp"
+    },
+    {
+      "name": "margin_index_bottom",
+      "value": "18vp"
+    },
+    {
+      "name": "margin_slide_top",
+      "value": "40vp"
+    },
+    {
+      "name": "margin_button_bottom",
+      "value": "48vp"
+    },
+    {
+      "name": "margin_side_tab_top",
+      "value": "74vp"
+    },
+    {
+      "name": "margin_sidebar_content",
+      "value": "284vp"
+    },
+    {
+      "name": "padding_double_tab_left",
+      "value": "4vp"
+    },
+    {
+      "name": "padding_rudder_tab",
+      "value": "11vp"
+    },
+    {
+      "name": "padding_bottom_tab",
+      "value": "12vp"
+    },
+    {
+      "name": "padding_drawer_row",
+      "value": "13vp"
+    },
+    {
+      "name": "padding_index_top",
+      "value": "44vp"
+    },
+    {
+      "name": "drawer_padding",
+      "value": "104vp"
+    }
+  ]
+}
