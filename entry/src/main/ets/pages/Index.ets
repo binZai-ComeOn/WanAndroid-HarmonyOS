@@ -46,11 +46,12 @@ struct Index {
         Swiper(this.swiperController) {
           ForEach(this.imgData, (item: Resource) => {
             Image(item).borderRadius($r('app.integer.image_borderRadius'))
-              .margin({ top: $r('app.integer.image_margin_top') })
           }, (item: Resource) => JSON.stringify(item))
         }
         .width(Constants.FULL_WIDTH)
-        .padding({ left: $r('app.integer.swiper_padding_left'), right: $r('app.integer.swiper_padding_right') })
+        .padding({
+          top: $r('app.integer.swiper_padding_top')
+        })
         .autoPlay(true)
         .interval(Constants.SWIPER_INTERVAL)
         .duration(Constants.SWIPER_DURATION)
@@ -87,6 +88,7 @@ struct Index {
     }
     .padding({ left: $r('app.float.padding_bottom_tab'), right: $r('app.float.padding_bottom_tab') })
     .backgroundColor(Color.White)
+    .align(Alignment.Top)
     .tabBar(this.tabBuilder(text, index, selectedImg, normalImg))
   }
 
@@ -102,7 +104,8 @@ struct Index {
       this.tabContentBuilder($r('app.string.system'),
         Constants.TAB_INDEX_TWO, $r('app.media.ic_tab_system_action'), $r('app.media.ic_tab_system'))
       this.tabContentBuilder($r('app.string.official_account'),
-        Constants.TAB_INDEX_THREE, $r('app.media.ic_tab_official_account_action'), $r('app.media.ic_tab_official_account'))
+        Constants.TAB_INDEX_THREE, $r('app.media.ic_tab_official_account_action'),
+        $r('app.media.ic_tab_official_account'))
       this.tabContentBuilder($r('app.string.projects'),
         Constants.TAB_INDEX_FOUR, $r('app.media.ic_tab_projects_action'), $r('app.media.ic_tab_projects'))
     }

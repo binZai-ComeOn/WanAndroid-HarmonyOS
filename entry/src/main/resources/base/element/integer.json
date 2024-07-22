@@ -2,11 +2,15 @@
   "integer": [
     {
       "name": "swiper_padding_left",
-      "value": 20
+      "value": 10
     },
     {
       "name": "swiper_padding_right",
-      "value": 20
+      "value": 10
+    },
+    {
+      "name": "swiper_padding_top",
+      "value": 10
     },
     {
       "name": "image_borderRadius",
