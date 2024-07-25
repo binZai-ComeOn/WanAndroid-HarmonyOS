@@ -31,6 +31,286 @@
     {
       "name": "projects",
       "value": "Projects"
+    },
+    {
+      "name": "navigation",
+      "value": "navigation"
+    },
+    {
+      "name": "menu",
+      "value": "menu"
+    },
+    {
+      "name": "avatar",
+      "value": "avatar"
+    },
+    {
+      "name": "search",
+      "value": "search"
+    },
+    {
+      "name": "add",
+      "value": "add"
+    },
+    {
+      "name": "back",
+      "value": "back"
+    },
+    {
+      "name": "clear_up",
+      "value": "clear up"
+    },
+    {
+      "name": "help",
+      "value": "help"
+    },
+    {
+      "name": "topping",
+      "value": "topping"
+    },
+    {
+      "name": "login",
+      "value": "login"
+    },
+    {
+      "name": "register",
+      "value": "register"
+    },
+    {
+      "name": "account",
+      "value": "account"
+    },
+    {
+      "name": "password",
+      "value": "password"
+    },
+    {
+      "name": "delete",
+      "value": "delete"
+    },
+    {
+      "name": "next",
+      "value": "next"
+    },
+    {
+      "name": "xin",
+      "value": "xin"
+    },
+    {
+      "name": "arrow",
+      "value": "arrow"
+    },
+    {
+      "name": "hot_search",
+      "value": "hot search"
+    },
+    {
+      "name": "search_history",
+      "value": "search history"
+    },
+    {
+      "name": "user_login",
+      "value": "user login"
+    },
+    {
+      "name": "user_register",
+      "value": "user register"
+    },
+    {
+      "name": "points_ranking",
+      "value": "points ranking"
+    },
+    {
+      "name": "points_rule",
+      "value": "points rule"
+    },
+    {
+      "name": "go_login",
+      "value": "go login"
+    },
+    {
+      "name": "go_register",
+      "value": "go register"
+    },
+    {
+      "name": "integral",
+      "value": "integral"
+    },
+    {
+      "name": "points_details",
+      "value": "points details"
+    },
+    {
+      "name": "collect",
+      "value": "collect"
+    },
+    {
+      "name": "my_share",
+      "value": "my share"
+    },
+    {
+      "name": "theme",
+      "value": "Night mode"
+    },
+    {
+      "name": "seting",
+      "value": "seting"
+    },
+    {
+      "name": "logout",
+      "value": "logout"
+    },
+    {
+      "name": "login_success",
+      "value": "login successed"
+    },
+    {
+      "name": "register_success",
+      "value": "register successed"
+    },
+    {
+      "name": "auto_we",
+      "value": "auto we"
+    },
+    {
+      "name": "sourse_code",
+      "value": "sourse code"
+    },
+    {
+      "name": "clear_cache",
+      "value": "clear cache"
+    },
+    {
+      "name": "clear_cache_successfully",
+      "value": "clear cache successfully"
+    },
+    {
+      "name": "is_logout",
+      "value": "Are you sure you want to log out？"
+    },
+    {
+      "name": "is_clear_cache",
+      "value": "Are you sure you want to clear the cache？"
+    },
+    {
+      "name": "no_account",
+      "value": "Don't have an account? Go register"
+    },
+    {
+      "name": "have_account",
+      "value": "Do you already have an account? Go login"
+    },
+    {
+      "name": "login_tip",
+      "value": "Please log in with your WanAndroid account！"
+    },
+    {
+      "name": "register_tip",
+      "value": "Users can only log in after registering！"
+    },
+    {
+      "name": "please_input_keywords",
+      "value": "Please enter keywords"
+    },
+    {
+      "name": "please_input_account",
+      "value": "请输入用户名"
+    },
+    {
+      "name": "please_input_password",
+      "value": "Please input password"
+    },
+    {
+      "name": "enter_password_again",
+      "value": "Please enter your password again"
+    },
+    {
+      "name": "enter_password_try",
+      "value": "The password entered twice is inconsistent, please try again"
+    },
+    {
+      "name": "please_log_in_and_try_again",
+      "value": "Please log in and try again"
+    },
+    {
+      "name": "share_article_title",
+      "value": "Article Title"
+    },
+    {
+      "name": "share_article_title_tip",
+      "value": "100 words"
+    },
+    {
+      "name": "share_article_title_tip_null",
+      "value": "Please enter a title"
+    },
+    {
+      "name": "share_article_link",
+      "value": "Article link"
+    },
+    {
+      "name": "share_article_link_tip",
+      "value": "for example：https://www.wanandroid.com"
+    },
+    {
+      "name": "share_article_link_tip_null",
+      "value": "Please enter the article link"
+    },
+    {
+      "name": "share_article_tip",
+      "value": "1. Any good article can be shared, it doesn't necessarily have to be original! The submitted article will enter the square tab;\n2. Official blog sites such as CSDN, Nuggets, and Jianshu will be directly approved without the need for review;\n3. Other personal websites will enter the review stage. Do not submit any invalid links. For testing purposes, please delete them as soon as possible, otherwise it may have a certain impact on your account;\n4. Currently in the testing phase, if you find errors such as 500, you can submit logs to me and let's work together to make the website better.\n5. As I am the only one developing and maintaining this website, I will do my best to ensure that the review is completed within 24 hours. However, there may be delays due to exhaustion on certain days. Please maintain a Buddhist style"
+    },
+    {
+      "name": "share",
+      "value": "share"
+    },
+    {
+      "name": "share_success",
+      "value": "share successed"
+    },
+    {
+      "name": "share_article_delete",
+      "value": "Deleted shared article"
+    },
+    {
+      "name": "audited",
+      "value": "Audit"
+    },
+    {
+      "name": "submit_ing",
+      "value": "Submitting..."
+    },
+    {
+      "name": "delete_search_history",
+      "value": "Clear search history"
+    },
+    {
+      "name": "is_delete_search_history",
+      "value": "Confirm to clear search history？"
+    },
+    {
+      "name": "nav_grade",
+      "value": "grade："
+    },
+    {
+      "name": "nav_rank",
+      "value": "rank："
+    },
+    {
+      "name": "nav_line_2",
+      "value": "--"
+    },
+    {
+      "name": "nav_line_4",
+      "value": "----"
+    },
+    {
+      "name": "success_share",
+      "value": "Sharing success"
+    },
+    {
+      "name": "fail_share",
+      "value": "Sharing failed"
     }
   ]
 }

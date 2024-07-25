@@ -1,7 +1,11 @@
 import { Constants } from '../common/Constants';
-import { resourceManager } from '@kit.LocalizationKit';
-import { image } from '@kit.ImageKit';
-import { effectKit } from '@kit.ArkGraphics2D';
+import { ComposeTitleBar, promptAction } from '@kit.ArkUI'
+
+interface menuItem {
+  value: Resource;
+  isEnabled?: boolean;
+  action?: () => void
+}
 
 @Entry
 @Component
@@ -9,7 +13,7 @@ struct Index {
   @State currentIndex: number = 0;
   private tabsController: TabsController = new TabsController();
   private swiperController: SwiperController = new SwiperController();
-  @State imgData: Resource[] = [
+  @State swiperImgData: Resource[] = [
     $r('app.media.image1'),
     $r('app.media.image2'),
     $r('app.media.image3'),
@@ -17,6 +21,20 @@ struct Index {
     $r('app.media.image5'),
     $r('app.media.image6'),
   ];
+  private homePageMenus: Array<menuItem> = [
+    {
+      value: $r('app.media.ic_search'),
+      isEnabled: true,
+      action: () => promptAction.showToast({ message: "show toast index 1" })
+    }
+  ]
+  private homePageTopLeftMenus: Array<menuItem> = [
+    {
+      value: $r('app.media.ic_search'),
+      isEnabled: true,
+      action: () => promptAction.showToast({ message: "show toast index 1" })
+    }
+  ]
 
   @Builder
   tabBuilder(title: Resource, index: number, selectedImg: Resource, normalImg: Resource) {
@@ -43,8 +61,13 @@ struct Index {
   tabContentBuilder(text: Resource, index: number, selectedImg: Resource, normalImg: Resource) {
     TabContent() {
       Column() {
+        TitleBar({ leftImg: $r('app.media.ic_back')})
+        ComposeTitleBar({
+          title: $r('app.string.app_name'),
+          menuItems: this.homePageMenus.slice(0, 1),
+        })
         Swiper(this.swiperController) {
-          ForEach(this.imgData, (item: Resource) => {
+          ForEach(this.swiperImgData, (item: Resource) => {
             Image(item).borderRadius($r('app.integer.image_borderRadius'))
           }, (item: Resource) => JSON.stringify(item))
         }
@@ -116,5 +139,21 @@ struct Index {
     .onAnimationStart((index: number, targetIndex: number) => {
       this.currentIndex = targetIndex;
     })
+  }
+}
+
+
+@Component
+struct TitleBar {
+  leftImg: Resource | null = null
+  @State title: string = ''
+
+  build() {
+    Row({ space: 10 }) {
+      if (this.leftImg != null) {
+        Image(this.leftImg).width('24').height('24')
+      }
+      Text(this.title)
+    }.width('24').height('24')
   }
 }

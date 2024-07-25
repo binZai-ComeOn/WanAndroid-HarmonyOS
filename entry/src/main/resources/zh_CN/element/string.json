@@ -31,6 +31,286 @@
     {
       "name": "projects",
       "value": "项目"
+    },
+    {
+      "name": "navigation",
+      "value": "导航"
+    },
+    {
+      "name": "menu",
+      "value": "菜单"
+    },
+    {
+      "name": "avatar",
+      "value": "头像"
+    },
+    {
+      "name": "search",
+      "value": "搜索"
+    },
+    {
+      "name": "add",
+      "value": "添加"
+    },
+    {
+      "name": "back",
+      "value": "返回"
+    },
+    {
+      "name": "clear_up",
+      "value": "清除"
+    },
+    {
+      "name": "help",
+      "value": "帮助"
+    },
+    {
+      "name": "topping",
+      "value": "置顶"
+    },
+    {
+      "name": "login",
+      "value": "登录"
+    },
+    {
+      "name": "register",
+      "value": "注册"
+    },
+    {
+      "name": "account",
+      "value": "账号"
+    },
+    {
+      "name": "password",
+      "value": "密码"
+    },
+    {
+      "name": "delete",
+      "value": "删除"
+    },
+    {
+      "name": "next",
+      "value": "下一步"
+    },
+    {
+      "name": "xin",
+      "value": "新"
+    },
+    {
+      "name": "arrow",
+      "value": "小箭头"
+    },
+    {
+      "name": "hot_search",
+      "value": "热门搜索"
+    },
+    {
+      "name": "search_history",
+      "value": "搜索历史"
+    },
+    {
+      "name": "user_login",
+      "value": "用户登录"
+    },
+    {
+      "name": "user_register",
+      "value": "注册用户"
+    },
+    {
+      "name": "points_ranking",
+      "value": "积分排行榜"
+    },
+    {
+      "name": "points_rule",
+      "value": "积分规则"
+    },
+    {
+      "name": "go_login",
+      "value": "去登录"
+    },
+    {
+      "name": "go_register",
+      "value": "去注册"
+    },
+    {
+      "name": "integral",
+      "value": "我的积分"
+    },
+    {
+      "name": "points_details",
+      "value": "积分明细"
+    },
+    {
+      "name": "collect",
+      "value": "我的收藏"
+    },
+    {
+      "name": "my_share",
+      "value": "我的分享"
+    },
+    {
+      "name": "theme",
+      "value": "夜间模式"
+    },
+    {
+      "name": "seting",
+      "value": "系统设置"
+    },
+    {
+      "name": "logout",
+      "value": "退出登录"
+    },
+    {
+      "name": "login_success",
+      "value": "登录成功"
+    },
+    {
+      "name": "register_success",
+      "value": "注册成功"
+    },
+    {
+      "name": "auto_we",
+      "value": "关于我们"
+    },
+    {
+      "name": "sourse_code",
+      "value": "源代码"
+    },
+    {
+      "name": "clear_cache",
+      "value": "清除缓存"
+    },
+    {
+      "name": "clear_cache_successfully",
+      "value": "清理成功"
+    },
+    {
+      "name": "is_logout",
+      "value": "确定要退出登录吗？"
+    },
+    {
+      "name": "is_clear_cache",
+      "value": "确定要清除缓存吗？"
+    },
+    {
+      "name": "no_account",
+      "value": "没有账号？去注册"
+    },
+    {
+      "name": "have_account",
+      "value": "已有账户？去登录"
+    },
+    {
+      "name": "login_tip",
+      "value": "请使用WanAndroid账号登录！"
+    },
+    {
+      "name": "register_tip",
+      "value": "用户注册后才可以登录！"
+    },
+    {
+      "name": "please_input_keywords",
+      "value": "请输入关键字"
+    },
+    {
+      "name": "please_input_account",
+      "value": "请输入用户名"
+    },
+    {
+      "name": "please_input_password",
+      "value": "请输入密码"
+    },
+    {
+      "name": "enter_password_again",
+      "value": "再次输入密码"
+    },
+    {
+      "name": "enter_password_try",
+      "value": "两次密码输入不一致，请重试"
+    },
+    {
+      "name": "please_log_in_and_try_again",
+      "value": "请登录后重试"
+    },
+    {
+      "name": "share_article_title",
+      "value": "文章标题"
+    },
+    {
+      "name": "share_article_title_tip",
+      "value": "100字以内"
+    },
+    {
+      "name": "share_article_title_tip_null",
+      "value": "请输入标题"
+    },
+    {
+      "name": "share_article_link",
+      "value": "文章链接"
+    },
+    {
+      "name": "share_article_link_tip",
+      "value": "例如：https://www.wanandroid.com"
+    },
+    {
+      "name": "share_article_link_tip_null",
+      "value": "请输入文章链接"
+    },
+    {
+      "name": "share_article_tip",
+      "value": "1. 只要是任何好文都可以分享哈，并不一定要是原创！投递的文章会进入广场 tab;\n\\n2. CSDN，掘金，简书等官方博客站点会直接通过，不需要审核;\n\\n3. 其他个人站点会进入审核阶段，不要投递任何无效链接，测试的请尽快删除，否则可能会对你的账号产生一定影响;\n\\n4. 目前处于测试阶段，如果你发现500等错误，可以向我提交日志，让我们一起使网站变得更好。\n\\n5. 由于本站只有我一个人开发与维护，会尽力保证24小时内审核，当然有可能哪天太累，会延期，请保持佛系..."
+    },
+    {
+      "name": "share",
+      "value": "分享"
+    },
+    {
+      "name": "share_success",
+      "value": "分享成功"
+    },
+    {
+      "name": "share_article_delete",
+      "value": "已删除分享的文章"
+    },
+    {
+      "name": "audited",
+      "value": "待审核"
+    },
+    {
+      "name": "submit_ing",
+      "value": "正在提交..."
+    },
+    {
+      "name": "delete_search_history",
+      "value": "清空搜索历史"
+    },
+    {
+      "name": "is_delete_search_history",
+      "value": "确定清空搜索历史？"
+    },
+    {
+      "name": "nav_grade",
+      "value": "等级："
+    },
+    {
+      "name": "nav_rank",
+      "value": "排名："
+    },
+    {
+      "name": "nav_line_2",
+      "value": "--"
+    },
+    {
+      "name": "nav_line_4",
+      "value": "----"
+    },
+    {
+      "name": "success_share",
+      "value": "分享成功"
+    },
+    {
+      "name": "fail_share",
+      "value": "分享失败"
     }
   ]
 }
