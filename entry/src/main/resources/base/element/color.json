@@ -111,6 +111,10 @@
     {
       "name": "tab_gray_background_color",
       "value": "#32292A"
+    },
+    {
+      "name": "title_font_color",
+      "value": "#182431"
     }
   ]
 }

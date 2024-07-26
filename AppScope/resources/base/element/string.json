@@ -2,6 +2,10 @@
   "string": [
     {
       "name": "app_name",
+      "value": "Android技术社区"
+    },
+    {
+      "name": "wan_android",
       "value": "玩Android"
     }
   ]

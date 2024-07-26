@@ -1,5 +1,7 @@
 import { Constants } from '../common/Constants';
 import { ComposeTitleBar, promptAction } from '@kit.ArkUI'
+import { NavDestinationItem } from '../viewmodel/NavDestinationItem';
+import { TitleBar } from '../widget/TitleBar';
 
 interface menuItem {
   value: Resource;
@@ -22,13 +24,6 @@ struct Index {
     $r('app.media.image6'),
   ];
   private homePageMenus: Array<menuItem> = [
-    {
-      value: $r('app.media.ic_search'),
-      isEnabled: true,
-      action: () => promptAction.showToast({ message: "show toast index 1" })
-    }
-  ]
-  private homePageTopLeftMenus: Array<menuItem> = [
     {
       value: $r('app.media.ic_search'),
       isEnabled: true,
@@ -61,10 +56,10 @@ struct Index {
   tabContentBuilder(text: Resource, index: number, selectedImg: Resource, normalImg: Resource) {
     TabContent() {
       Column() {
-        TitleBar({ leftImg: $r('app.media.ic_back')})
-        ComposeTitleBar({
-          title: $r('app.string.app_name'),
-          menuItems: this.homePageMenus.slice(0, 1),
+        TitleBar({
+          leftImg: $r('app.media.ic_menu'),
+          title: $r('app.string.wan_android'),
+          rightImg: $r('app.media.ic_search')
         })
         Swiper(this.swiperController) {
           ForEach(this.swiperImgData, (item: Resource) => {
@@ -82,34 +77,11 @@ struct Index {
         .itemSpace(Constants.SWIPER_ITEM_SPACE)
         .indicator(false)
         .onAnimationStart(async (index, targetIndex) => {
-          // try {
-          //   const context = getContext(this);
-          //   const resourceMgr: resourceManager.ResourceManager = context.resourceManager;
-          //   const fileData: Uint8Array = await resourceMgr.getMediaContent(this.imgData[targetIndex]);
-          //   const buffer = fileData.buffer as ArrayBuffer;
-          //   const imageSource: image.ImageSource = image.createImageSource(buffer);
-          //   const pixelMap: image.PixelMap = await imageSource.createPixelMap();
-          //
-          //   effectKit.createColorPicker(pixelMap, (err, colorPicker) => {
-          //     let color = colorPicker.getMainColorSync();
-          //     animateTo({
-          //       duration: CommonConstants.ANIMATION_DURATION,
-          //       curve: Curve.Linear,
-          //       iterations: CommonConstants.ANIMATION_ITERATIONS
-          //     }, () => {
-          //       this.bgColor = "#" + color.alpha.toString(CommonConstants.HEXADECIMAL) +
-          //       color.red.toString(CommonConstants.HEXADECIMAL) + color.green.toString(CommonConstants.HEXADECIMAL) +
-          //       color.blue.toString(CommonConstants.HEXADECIMAL);
-          //     })
-          //   })
-          // } catch (e) {
-          //   hilog.error(0x0000, 'TestTag', 'Failed error.code is %{public}d,error.message is %{public}s', e.code,
-          //     e.message);
-          // }
+
         })
       }
     }
-    .padding({ left: $r('app.float.padding_bottom_tab'), right: $r('app.float.padding_bottom_tab') })
+    .padding({ left: '20vh', right: '20vh' })
     .backgroundColor(Color.White)
     .align(Alignment.Top)
     .tabBar(this.tabBuilder(text, index, selectedImg, normalImg))
@@ -139,21 +111,5 @@ struct Index {
     .onAnimationStart((index: number, targetIndex: number) => {
       this.currentIndex = targetIndex;
     })
-  }
-}
-
-
-@Component
-struct TitleBar {
-  leftImg: Resource | null = null
-  @State title: string = ''
-
-  build() {
-    Row({ space: 10 }) {
-      if (this.leftImg != null) {
-        Image(this.leftImg).width('24').height('24')
-      }
-      Text(this.title)
-    }.width('24').height('24')
   }
 }

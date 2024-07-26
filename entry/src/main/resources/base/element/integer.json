@@ -19,6 +19,10 @@
     {
       "name": "image_margin_top",
       "value": 20
+    },
+    {
+      "name": "title_font_size",
+      "value": 20
     }
   ]
 }
