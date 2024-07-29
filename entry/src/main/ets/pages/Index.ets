@@ -1,20 +1,15 @@
 import { Constants } from '../common/Constants';
-import { ComposeTitleBar, promptAction } from '@kit.ArkUI'
-import { NavDestinationItem } from '../viewmodel/NavDestinationItem';
-import { TitleBar } from '../widget/TitleBar';
-
-interface menuItem {
-  value: Resource;
-  isEnabled?: boolean;
-  action?: () => void
-}
+import { HomePage } from './HomePage';
+import { SquarePage } from './SquarePage';
+import { OfficialAccountPage } from './OfficialAccountPage';
+import { ProjectsPage } from './ProjectsPage';
+import { SystemPage } from './SystemPage';
 
 @Entry
 @Component
 struct Index {
   @State currentIndex: number = 0;
   private tabsController: TabsController = new TabsController();
-  private swiperController: SwiperController = new SwiperController();
   @State swiperImgData: Resource[] = [
     $r('app.media.image1'),
     $r('app.media.image2'),
@@ -23,13 +18,6 @@ struct Index {
     $r('app.media.image5'),
     $r('app.media.image6'),
   ];
-  private homePageMenus: Array<menuItem> = [
-    {
-      value: $r('app.media.ic_search'),
-      isEnabled: true,
-      action: () => promptAction.showToast({ message: "show toast index 1" })
-    }
-  ]
 
   @Builder
   tabBuilder(title: Resource, index: number, selectedImg: Resource, normalImg: Resource) {
@@ -50,41 +38,6 @@ struct Index {
       this.currentIndex = index;
       this.tabsController.changeIndex(this.currentIndex);
     })
-  }
-
-  @Builder
-  tabContentBuilder(text: Resource, index: number, selectedImg: Resource, normalImg: Resource) {
-    TabContent() {
-      Column() {
-        TitleBar({
-          leftImg: $r('app.media.ic_menu'),
-          title: $r('app.string.wan_android'),
-          rightImg: $r('app.media.ic_search')
-        })
-        Swiper(this.swiperController) {
-          ForEach(this.swiperImgData, (item: Resource) => {
-            Image(item).borderRadius($r('app.integer.image_borderRadius'))
-          }, (item: Resource) => JSON.stringify(item))
-        }
-        .width(Constants.FULL_WIDTH)
-        .padding({
-          top: $r('app.integer.swiper_padding_top')
-        })
-        .autoPlay(true)
-        .interval(Constants.SWIPER_INTERVAL)
-        .duration(Constants.SWIPER_DURATION)
-        .loop(true)
-        .itemSpace(Constants.SWIPER_ITEM_SPACE)
-        .indicator(false)
-        .onAnimationStart(async (index, targetIndex) => {
-
-        })
-      }
-    }
-    .padding({ left: '20vh', right: '20vh' })
-    .backgroundColor(Color.White)
-    .align(Alignment.Top)
-    .tabBar(this.tabBuilder(text, index, selectedImg, normalImg))
   }
 
   build() {
@@ -108,8 +61,31 @@ struct Index {
     .backgroundColor($r('app.color.tab_color'))
     .barHeight($r('app.float.mainPage_barHeight'))
     .barMode(BarMode.Fixed)
-    .onAnimationStart((index: number, targetIndex: number) => {
+    .onAnimationStart((_index: number, targetIndex: number) => {
       this.currentIndex = targetIndex;
     })
+  }
+
+  @Builder
+  tabContentBuilder(text: Resource, index: number, selectedImg: Resource, normalImg: Resource) {
+    TabContent() {
+      Column() {
+        if (index == 0) {
+          HomePage()
+        } else if (index == 1) {
+          SquarePage()
+        } else if (index == 2) {
+          SystemPage()
+        } else if (index == 3) {
+          OfficialAccountPage()
+        } else if (index == 4) {
+          ProjectsPage()
+        }
+      }
+    }
+    .padding({ left: '20vh', right: '20vh' })
+    .backgroundColor(Color.White)
+    .align(Alignment.Top)
+    .tabBar(this.tabBuilder(text, index, selectedImg, normalImg))
   }
 }
