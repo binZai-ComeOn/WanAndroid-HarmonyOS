@@ -12,6 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { SideBarItem } from '../bean/SideBarItem';
 
 export class Constants {
   /**
@@ -246,20 +247,13 @@ export class Constants {
    * Swipe project space
    */
   static readonly SWIPER_ITEM_SPACE: number = 10;
-}
-
-/**
- * Route type define.
- */
-export interface Route {
-  title: string,
-  child: Array<ChildRoute>
-}
-
-/**
- * ChildRoute type define.
- */
-export interface ChildRoute {
-  text: string,
-  to: string
+  /**
+   * Sidebar functions item list
+   */
+  static readonly SIDE_BAR_LIST: Array<SideBarItem> =
+    Array<SideBarItem>(new SideBarItem($r('app.media.ic_delete'), $r('app.string.integral'), "100"),
+      new SideBarItem($r('app.media.ic_collect'), $r('app.string.collect'), ""),
+      new SideBarItem($r('app.media.ic_my_share'), $r('app.string.my_share'), ""),
+      new SideBarItem($r('app.media.ic_theme'), $r('app.string.theme'), ""),
+      new SideBarItem($r('app.media.ic_setting'), $r('app.string.setting'), ""));
 }

@@ -1,4 +1,5 @@
 import { Constants } from '../common/Constants'
+import { SideBarUI } from '../widget/SideBarUI';
 import { TitleBar } from '../widget/TitleBar'
 
 @Preview
@@ -17,10 +18,9 @@ export struct HomePage {
 
   build() {
     SideBarContainer(SideBarContainerType.Embed) {
-      Column() {
-        Text("测试")
-      }
-
+      // 侧边栏的 ui
+      SideBarUI()
+      // HomePage内容
       Column() {
         TitleBar({
           title: $r('app.string.wan_android'),
