@@ -83,7 +83,6 @@ struct Index {
         }
       }
     }
-    .padding({ left: '20vh', right: '20vh' })
     .backgroundColor(Color.White)
     .align(Alignment.Top)
     .tabBar(this.tabBuilder(text, index, selectedImg, normalImg))

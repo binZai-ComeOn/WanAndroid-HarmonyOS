@@ -1,6 +1,7 @@
 import { Constants } from '../common/Constants'
 import { TitleBar } from '../widget/TitleBar'
 
+@Preview
 @Component
 export struct HomePage {
   @State currentIndex: number = 0;
@@ -15,30 +16,47 @@ export struct HomePage {
   ];
 
   build() {
-    Column() {
-      TitleBar({
-        leftImg: $r('app.media.ic_menu'),
-        title: $r('app.string.wan_android'),
-        rightImg: $r('app.media.ic_search')
-      })
-      Swiper(this.swiperController) {
-        ForEach(this.swiperImgData, (item: Resource) => {
-          Image(item).borderRadius($r('app.integer.image_borderRadius'))
-        }, (item: Resource) => JSON.stringify(item))
+    SideBarContainer(SideBarContainerType.Embed) {
+      Column() {
+        Text("测试")
       }
-      .width(Constants.FULL_WIDTH)
-      .padding({
-        top: $r('app.integer.swiper_padding_top')
-      })
-      .autoPlay(true)
-      .interval(Constants.SWIPER_INTERVAL)
-      .duration(Constants.SWIPER_DURATION)
-      .loop(true)
-      .itemSpace(Constants.SWIPER_ITEM_SPACE)
-      .indicator(false)
-      .onAnimationStart(async (index, targetIndex) => {
 
-      })
-    }
+      Column() {
+        TitleBar({
+          title: $r('app.string.wan_android'),
+          rightImg: $r('app.media.ic_search'),
+          iconSpace: true
+        })
+        Swiper(this.swiperController) {
+          ForEach(this.swiperImgData, (item: Resource) => {
+            Image(item).borderRadius($r('app.integer.image_borderRadius'))
+          }, (item: Resource) => JSON.stringify(item))
+        }
+        .width(Constants.FULL_WIDTH)
+        .padding({
+          top: $r('app.integer.swiper_padding_top')
+        })
+        .autoPlay(true)
+        .interval(Constants.SWIPER_INTERVAL)
+        .duration(Constants.SWIPER_DURATION)
+        .loop(true)
+        .itemSpace(Constants.SWIPER_ITEM_SPACE)
+        .indicator(false)
+        .onAnimationStart(async (index, targetIndex) => {
+
+        })
+      }
+      .padding({ left: '20vh', right: '20vh' })
+    }.controlButton({
+      left: 30,
+      top: 21,
+      height: 24,
+      width: 24,
+      icons: {
+        shown: $r("app.media.ic_menu"),
+        hidden: $r("app.media.ic_menu"),
+        switching: $r("app.media.ic_menu")
+      }
+    })
   }
 }

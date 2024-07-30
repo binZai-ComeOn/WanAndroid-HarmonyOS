@@ -246,66 +246,6 @@ export class Constants {
    * Swipe project space
    */
   static readonly SWIPER_ITEM_SPACE: number = 10;
-  /**
-   * Routes.
-   */
-  static readonly ROUTES: Route[] = [
-    {
-      title: '底部导航',
-      child: [
-        {
-          text: '常见底部导航',
-          to: 'BottomTab'
-        },
-        {
-          text: '舵式底部导航',
-          to: 'RudderStyleTab'
-        },
-        {
-          text: 'TabContent视频内容滑动并在Tabbar上显示',
-          to: 'TabContentOverflow'
-        }
-      ]
-    },
-    {
-      title: '顶部导航',
-      child: [
-        {
-          text: '下划线样式',
-          to: 'UnderlineTab'
-        },
-        {
-          text: '背景高亮样式',
-          to: 'BackgroundLightTab'
-        },
-        {
-          text: '文字样式',
-          to: 'WordTab'
-        },
-        {
-          text: '双层嵌套样式',
-          to: 'DoubleNestingTab'
-        },
-        {
-          text: '可滑动+更多按钮',
-          to: 'SlideAndMoreTab'
-        }
-      ]
-    },
-    {
-      title: '侧边导航',
-      child: [
-        {
-          text: '常见侧边导航',
-          to: 'SideTab'
-        },
-        {
-          text: '抽屉式侧边导航',
-          to: 'DrawerTab'
-        }
-      ]
-    }
-  ]
 }
 
 /**

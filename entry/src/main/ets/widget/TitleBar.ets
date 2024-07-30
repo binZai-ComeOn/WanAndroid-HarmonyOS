@@ -3,11 +3,14 @@ export struct TitleBar {
   leftImg: Resource | null = null
   @State title: Resource | string = ''
   rightImg: Resource | null = null
+  iconSpace: boolean = false
 
   build() {
     Row({ space: 10 }) {
       if (this.leftImg != null) {
         Image(this.leftImg).width('24').height('24')
+      } else if (this.iconSpace) {
+        Row().width('26').height('26')
       }
       Text(this.title).fontSize($r('app.integer.title_font_size')).fontColor($r('app.color.title_font_color'))
       Blank()
