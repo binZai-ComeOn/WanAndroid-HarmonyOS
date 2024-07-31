@@ -42,11 +42,11 @@ export struct HomePage {
         .loop(true)
         .itemSpace(Constants.SWIPER_ITEM_SPACE)
         .indicator(false)
-        .onAnimationStart(async (index, targetIndex) => {
+        .onAnimationStart(async () => {
 
         })
       }
-      .padding({ left: '20vh', right: '20vh' })
+      .padding({ left: '20vh', right: '20vh' }).width('100%').height('100%')
     }.controlButton({
       left: 30,
       top: 21,
