@@ -1,6 +1,7 @@
 import { Constants } from '../common/Constants'
 import { SideBarUI } from '../widget/SideBarUI';
 import { TitleBar } from '../widget/TitleBar'
+import { router } from '@kit.ArkUI';
 
 @Preview
 @Component
@@ -25,7 +26,10 @@ export struct HomePage {
         TitleBar({
           title: $r('app.string.wan_android'),
           rightImg: $r('app.media.ic_search'),
-          iconSpace: true
+          iconSpace: true,
+          onRightImgClick: () => {
+            router.pushUrl({url:"pages/SearchPage"})
+          }
         })
         Swiper(this.swiperController) {
           ForEach(this.swiperImgData, (item: Resource) => {
