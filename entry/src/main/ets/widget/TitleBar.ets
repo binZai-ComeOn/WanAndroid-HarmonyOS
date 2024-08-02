@@ -2,6 +2,8 @@
 export struct TitleBar {
   // 标题左侧图标
   leftImg: Resource | null = null
+  // 左侧图标的点击事件
+  onLeftImgClick?: (event: ClickEvent) => void
   // 是否启用输入栏
   isEdit: boolean = false
   // 标题（isEdit == false 可用）
@@ -15,13 +17,15 @@ export struct TitleBar {
   // 是否使用间距代替左侧的icon
   iconSpace: boolean = false
   // 右侧图标的点击事件
-  onRightImgClick?: () => void
+  onRightImgClick?: (event: ClickEvent) => void
   private controller: TextInputController = new TextInputController()
 
   build() {
     Row({ space: 10 }) {
       if (this.leftImg != null) {
-        Image(this.leftImg).width('24').height('24')
+        Image(this.leftImg).width('24').height('24').onClick((event: ClickEvent) => {
+          this.onLeftImgClick?.(event)
+        })
       } else if (this.iconSpace) {
         Row().width('26').height('26')
       }
@@ -32,15 +36,15 @@ export struct TitleBar {
           text: this.editText,
           placeholder: $r('app.string.please_input_keywords'),
           controller: this.controller
-        })
+        }).width('230')
           .onChange((value: string) => {
             this.onTextChange?.(value)
           })
       }
       Blank()
       if (this.rightImg != null) {
-        Image(this.rightImg).width('24').height('24').onClick(() => {
-          this.onRightImgClick?.()
+        Image(this.rightImg).width('24').height('24').onClick((event: ClickEvent) => {
+          this.onRightImgClick?.(event)
         })
       }
     }
