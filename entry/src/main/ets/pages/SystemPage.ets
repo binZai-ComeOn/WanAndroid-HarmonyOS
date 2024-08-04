@@ -3,6 +3,7 @@ import { router } from '@kit.ArkUI'
 import { SideBarTitleBar } from '../widget/SideBarTitleBar'
 import { TopTabBar } from '../widget/TopTabBar'
 import { Constants } from '../common/Constants'
+import { SideTabBar } from '../widget/SideTabBar'
 
 /**
  * 体系页
@@ -24,18 +25,28 @@ export struct SystemPage {
         })
         TopTabBar({
           tabs: this.tabs,
-          content:this.content
+          content:this.TopTabBarContent
         })
       }
     }
   }
 
   @Builder
-  content(tabName: Resource) {
+  private TopTabBarContent(tabName: Resource) {
     if (this.tabs[0] == tabName) {
-
+      SideTabBar({
+        tabs: [$r('app.string.user_login'),$r('app.string.theme')],
+        content: this.SideTabBarContent
+      })
     } else if (this.tabs[1] == tabName) {
       Text(tabName)
     }
   }
+
+  @Builder
+  private SideTabBarContent(tabName: Resource) {
+    Column(){
+      Text("测试")
+    }.width(Constants.FULL_WIDTH).height(Constants.DIVIDER_HEIGHT).backgroundColor(Color.Gray)
+  };
 }

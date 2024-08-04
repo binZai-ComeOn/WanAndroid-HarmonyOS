@@ -258,7 +258,7 @@ export class Constants {
       new SideBarItem($r('app.media.ic_setting'), $r('app.string.setting'), ""));
 
   /**
-   * SystemPage.ets tabbars
+   * SystemPage.ets TabBars values
    */
   public static readonly SYSTEM_PAGE_TABBARS: Resource[] = [$r('app.string.system') , $r('app.string.navigation') ];
 
@@ -281,4 +281,5 @@ export class Constants {
    * TabBars bar width.
    */
   public static readonly TAB_BARS_BAR_WIDTH: string = '100%';
+
 }

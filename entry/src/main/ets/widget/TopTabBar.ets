@@ -42,7 +42,7 @@ export struct TopTabBar {
   }
 
   @Builder
-  TabBuilder(index: number) {
+  private TabBuilder(index: number) {
     Column() {
       Text(this.tabs[index])
         .height(Constants.FULL_HEIGHT)
@@ -56,5 +56,5 @@ export struct TopTabBar {
   }
 
   @Builder
-  doNothingBuilder(tabName: Resource) {};
+  private doNothingBuilder(tabName: Resource) {};
 }
