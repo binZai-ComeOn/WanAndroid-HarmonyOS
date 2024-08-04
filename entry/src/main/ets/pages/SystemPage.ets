@@ -1,19 +1,19 @@
-/**
- * 体系页
- */
 import { TitleBar } from '../widget/TitleBar'
 import { router } from '@kit.ArkUI'
 import { SideBarTitleBar } from '../widget/SideBarTitleBar'
-import { TopTabs } from '../widget/TopTabs'
-import { TopTabItem } from '../bean/TopTabItem'
+import { TopTabBar } from '../widget/TopTabBar'
+import { Constants } from '../common/Constants'
 
+/**
+ * 体系页
+ */
 @Component
 export struct SystemPage {
-  private tabs: TopTabItem[] = [{ name: $r('app.string.system') }, { name: $r('app.string.navigation') }];
+  tabs: Resource[] = Constants.SYSTEM_PAGE_TABBARS;
 
   build() {
     SideBarTitleBar() {
-      Column(){
+      Column() {
         TitleBar({
           title: $r('app.string.system'),
           rightImg: $r('app.media.ic_search'),
@@ -22,11 +22,20 @@ export struct SystemPage {
             router.pushUrl({ url: "pages/SearchPage" })
           }
         })
-        TopTabs({
-          currentIndex: 1,
-          tabs: this.tabs
+        TopTabBar({
+          tabs: this.tabs,
+          content:this.content
         })
       }
+    }
+  }
+
+  @Builder
+  content(tabName: Resource) {
+    if (this.tabs[0] == tabName) {
+
+    } else if (this.tabs[1] == tabName) {
+      Text(tabName)
     }
   }
 }

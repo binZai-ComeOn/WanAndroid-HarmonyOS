@@ -256,4 +256,29 @@ export class Constants {
       new SideBarItem($r('app.media.ic_my_share'), $r('app.string.my_share'), ""),
       new SideBarItem($r('app.media.ic_theme'), $r('app.string.theme'), ""),
       new SideBarItem($r('app.media.ic_setting'), $r('app.string.setting'), ""));
+
+  /**
+   * SystemPage.ets tabbars
+   */
+  public static readonly SYSTEM_PAGE_TABBARS: Resource[] = [$r('app.string.system') , $r('app.string.navigation') ];
+
+  /**
+   * TabBars un select text font weight.
+   */
+  public static readonly TAB_BARS_UN_SELECT_TEXT_FONT_WEIGHT: number = 400;
+
+  /**
+   * TabBars select text font weight.
+   */
+  public static readonly TAB_BARS_SELECT_TEXT_FONT_WEIGHT: number = 700;
+
+  /**
+   * TabBars bar height.
+   */
+  public static readonly TAB_BARS_BAR_HEIGHT: string = '3.6%';
+
+  /**
+   * TabBars bar width.
+   */
+  public static readonly TAB_BARS_BAR_WIDTH: string = '100%';
 }
