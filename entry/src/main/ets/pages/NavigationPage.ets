@@ -2,19 +2,17 @@ import { Constants } from '../common/Constants'
 
 @Preview
 @Component
-export struct SideTabBar {
-  // tabs: Resource[] = [$r('app.string.system')];
-  tabs: Resource[] = Array();
+export struct NavigationPage {
+  tabs: Resource[] = [$r('app.string.system'), $r('app.string.system'), $r('app.string.system')];
   @State currentIndex: number = 0;
-  @BuilderParam content: (tabName: Resource) => void = this.doNothingBuilder;
 
   build() {
     Tabs({ barPosition: BarPosition.Start }) {
       ForEach(this.tabs, (tabName: Resource, index: number) => {
         TabContent() {
           Column() {
-            this.content(tabName)
-          }
+            Text(tabName)
+          }.width(Constants.FULL_WIDTH).height(Constants.FULL_HEIGHT)
         }.tabBar(this.TabBuilder(index))
       }, (item: string) => JSON.stringify(item));
     }
@@ -49,7 +47,4 @@ export struct SideTabBar {
     }
     .alignItems(HorizontalAlign.Start)
   }
-
-  @Builder
-  private doNothingBuilder(tabName: Resource) {};
 }
