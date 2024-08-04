@@ -1,17 +1,19 @@
+import { ParentColumn } from './ParentColumn';
 import { SideBarUI } from './SideBarUI'
 
 @Component
 export struct SideBarTitleBar {
   @BuilderParam
   content: () => void;
+
   build() {
     SideBarContainer(SideBarContainerType.Embed) {
       // 侧边栏的 ui
       SideBarUI()
-      Column() {
+      ParentColumn() {
         // 这里传入其它的ui
         this.content()
-      }.padding({ left: '20vh', right: '20vh' }).width('100%').height('100%')
+      }
     }.controlButton({
       left: 30,
       top: 21,

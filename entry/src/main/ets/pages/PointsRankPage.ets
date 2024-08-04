@@ -10,7 +10,8 @@ import { ParentColumn } from '../widget/ParentColumn'
 @Component
 export struct PointsRankPage {
   build() {
-    ParentColumn() {
+    Column(){
+    // ParentColumn() {
       TitleBar({
         leftImg: $r('app.media.ic_back'),
         title: $r('app.string.points_ranking'),
