@@ -282,4 +282,14 @@ export class Constants {
    */
   public static readonly TAB_BARS_BAR_WIDTH: string = '100%';
 
+  /**
+   * The spacing on the left side of the page.
+   */
+  public static readonly PAGE_MARGIN_LEFT: string = '20vh';
+
+  /**
+   * .The spacing on the right side of the page.
+   */
+  public static readonly PAGE_MARGIN_RIGHT: string = '20vh';
+
 }

@@ -1,13 +1,14 @@
 import { Constants } from '../common/Constants'
 
 @Component
-export struct ParentColumn{
+export struct ParentColumn {
   @BuilderParam
-  content : () => void;
+  content: () => void;
 
   build() {
-    Column(){
+    Column() {
       this.content()
-    }.padding({ left: '20vh', right: '20vh' }).width(Constants.FULL_WIDTH).height(Constants.FULL_HEIGHT)
+    }.padding({ left: Constants.PAGE_MARGIN_LEFT, right: Constants.PAGE_MARGIN_RIGHT })
+    .width(Constants.FULL_WIDTH).height(Constants.FULL_HEIGHT)
   }
 }
