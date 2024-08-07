@@ -22,8 +22,15 @@ struct SearchPage {
           console.log("搜索")
         }
       })
+      Text($r('app.string.hot_search')).width(Constants.FULL_WIDTH)
+      Text($r('app.string.search_history')).width(Constants.FULL_WIDTH)
     }
     .padding({ left: Constants.PAGE_MARGIN_LEFT, right: Constants.PAGE_MARGIN_RIGHT })
     .width(Constants.FULL_WIDTH).height(Constants.FULL_HEIGHT)
+  }
+
+  @Builder
+  SearchKeyWord(text : string) {
+    Text(text)
   }
 }
