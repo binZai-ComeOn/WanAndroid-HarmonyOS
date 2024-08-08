@@ -4,6 +4,7 @@ import { SideBarTitleBar } from '../widget/SideBarTitleBar'
 import { TopTabBar } from '../widget/TopTabBar'
 import { Constants } from '../common/Constants'
 import { NavigationPage } from './NavigationPage'
+import { ParentColumn } from '../widget/ParentColumn'
 
 /**
  * 体系页
@@ -13,21 +14,19 @@ export struct SystemPage {
   tabs: Resource[] = Constants.SYSTEM_PAGE_TABBARS;
 
   build() {
-    SideBarTitleBar() {
-      Column() {
-        TitleBar({
-          title: $r('app.string.system'),
-          rightImg: $r('app.media.ic_search'),
-          iconSpace: true,
-          onRightImgClick: () => {
-            router.pushUrl({ url: "pages/SearchPage" })
-          }
-        })
-        TopTabBar({
-          tabs: this.tabs,
-          content:this.TopTabBarContent
-        })
-      }
+    ParentColumn() {
+      TitleBar({
+        title: $r('app.string.system'),
+        rightImg: $r('app.media.ic_search'),
+        iconSpace: true,
+        onRightImgClick: () => {
+          router.pushUrl({ url: "pages/SearchPage" })
+        }
+      })
+      TopTabBar({
+        tabs: this.tabs,
+        content: this.TopTabBarContent
+      })
     }
   }
 
@@ -42,6 +41,6 @@ export struct SystemPage {
 
   @Builder
   SideTabBarContent(tabName: Resource) {
-        Text("tabName")
+    Text("tabName")
   }
 }

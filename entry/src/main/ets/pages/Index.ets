@@ -4,6 +4,9 @@ import { SquarePage } from './SquarePage';
 import { OfficialAccountPage } from './OfficialAccountPage';
 import { ProjectsPage } from './ProjectsPage';
 import { SystemPage } from './SystemPage';
+import { ParentColumn } from '../widget/ParentColumn';
+import { SideBarUI } from '../widget/SideBarUI';
+import { SideBarTitleBar } from '../widget/SideBarTitleBar';
 
 @Entry
 @Component
@@ -41,33 +44,43 @@ struct Index {
   }
 
   build() {
-    Tabs({
-      barPosition: BarPosition.End,
-      controller: this.tabsController
-    }) {
-      this.tabContentBuilder($r('app.string.home'),
-        Constants.TAB_INDEX_ZERO, $r('app.media.ic_tab_home_action'), $r('app.media.ic_tab_home'))
-      this.tabContentBuilder($r('app.string.square'),
-        Constants.TAB_INDEX_ONE, $r('app.media.ic_tab_square_action'), $r('app.media.ic_tab_square'))
-      this.tabContentBuilder($r('app.string.system'),
-        Constants.TAB_INDEX_TWO, $r('app.media.ic_tab_system_action'), $r('app.media.ic_tab_system'))
-      this.tabContentBuilder($r('app.string.official_account'),
-        Constants.TAB_INDEX_THREE, $r('app.media.ic_tab_official_account_action'),
-        $r('app.media.ic_tab_official_account'))
-      this.tabContentBuilder($r('app.string.projects'),
-        Constants.TAB_INDEX_FOUR, $r('app.media.ic_tab_projects_action'), $r('app.media.ic_tab_projects'))
+    Column() {
+      SideBarTitleBar() {
+        Tabs({
+          barPosition: BarPosition.End,
+          controller: this.tabsController
+        }) {
+          this.tabContentBuilder($r('app.string.home'),
+            Constants.TAB_INDEX_ZERO, $r('app.media.ic_tab_home_action'), $r('app.media.ic_tab_home'))
+          this.tabContentBuilder($r('app.string.square'),
+            Constants.TAB_INDEX_ONE, $r('app.media.ic_tab_square_action'), $r('app.media.ic_tab_square'))
+          this.tabContentBuilder($r('app.string.system'),
+            Constants.TAB_INDEX_TWO, $r('app.media.ic_tab_system_action'), $r('app.media.ic_tab_system'))
+          this.tabContentBuilder($r('app.string.official_account'),
+            Constants.TAB_INDEX_THREE, $r('app.media.ic_tab_official_account_action'),
+            $r('app.media.ic_tab_official_account'))
+          this.tabContentBuilder($r('app.string.projects'),
+            Constants.TAB_INDEX_FOUR, $r('app.media.ic_tab_projects_action'), $r('app.media.ic_tab_projects'))
+        }
+        .width(Constants.FULL_WIDTH)
+        .backgroundColor($r('app.color.tab_color'))
+        .barHeight($r('app.float.mainPage_barHeight'))
+        .barMode(BarMode.Fixed)
+        .onAnimationStart((_index: number, targetIndex: number) => {
+          this.currentIndex = targetIndex;
+        })
+      }
     }
-    .width(Constants.FULL_WIDTH)
-    .backgroundColor($r('app.color.tab_color'))
-    .barHeight($r('app.float.mainPage_barHeight'))
-    .barMode(BarMode.Fixed)
-    .onAnimationStart((_index: number, targetIndex: number) => {
-      this.currentIndex = targetIndex;
-    })
   }
 
-  @Builder
-  tabContentBuilder(text: Resource, index: number, selectedImg: Resource, normalImg: Resource) {
+  @
+  Builder
+  tabContentBuilder(text:
+    Resource, index:
+    number, selectedImg:
+    Resource, normalImg:
+    Resource
+  ) {
     TabContent() {
       Column() {
         if (index == 0) {

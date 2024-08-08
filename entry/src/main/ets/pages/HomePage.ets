@@ -3,6 +3,7 @@ import { SideBarUI } from '../widget/SideBarUI';
 import { TitleBar } from '../widget/TitleBar'
 import { router } from '@kit.ArkUI';
 import { SideBarTitleBar } from '../widget/SideBarTitleBar';
+import { ParentColumn } from '../widget/ParentColumn';
 
 @Preview
 @Component
@@ -19,7 +20,7 @@ export struct HomePage {
   ];
 
   build() {
-    SideBarTitleBar(){
+    ParentColumn() {
       TitleBar({
         title: $r('app.string.wan_android'),
         rightImg: $r('app.media.ic_search'),

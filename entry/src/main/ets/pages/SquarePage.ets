@@ -1,6 +1,5 @@
 import { TitleBar } from '../widget/TitleBar'
-import { router } from '@kit.ArkUI'
-import { SideBarTitleBar } from '../widget/SideBarTitleBar'
+import { ParentColumn } from '../widget/ParentColumn'
 
 /**
  * 广场页
@@ -8,7 +7,7 @@ import { SideBarTitleBar } from '../widget/SideBarTitleBar'
 @Component
 export struct SquarePage {
   build() {
-    SideBarTitleBar() {
+    ParentColumn() {
       TitleBar({
         title: $r('app.string.square'),
         rightImg: $r('app.media.ic_add'),

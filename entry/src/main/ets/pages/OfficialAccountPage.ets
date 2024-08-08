@@ -1,6 +1,6 @@
 import { TitleBar } from '../widget/TitleBar'
 import { router } from '@kit.ArkUI'
-import { SideBarTitleBar } from '../widget/SideBarTitleBar'
+import { ParentColumn } from '../widget/ParentColumn'
 
 /**
  * 公众号页
@@ -8,7 +8,7 @@ import { SideBarTitleBar } from '../widget/SideBarTitleBar'
 @Component
 export struct OfficialAccountPage {
   build() {
-    SideBarTitleBar() {
+    ParentColumn() {
       TitleBar({
         title: $r('app.string.official_account'),
         rightImg: $r('app.media.ic_search'),
