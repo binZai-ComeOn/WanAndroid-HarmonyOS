@@ -2,8 +2,9 @@ import { SideBarItem } from '../bean/SideBarItem'
 import { Constants } from '../common/Constants'
 import { FunctionsItem } from './FunctionsItem'
 import { TitleBar } from './TitleBar'
-import { router } from '@kit.ArkUI'
-import { text } from '@kit.ArkGraphics2D'
+import { promptAction, router } from '@kit.ArkUI'
+import prompt from '@ohos.prompt'
+import { BusinessError } from '@kit.BasicServicesKit'
 
 @Preview
 @Component
@@ -47,11 +48,34 @@ export struct SideBarUI {
             } else if (index == 4) {
               router.pushUrl({ url: 'pages/SystemSettingPage' })
             } else if (index == 5) {
-
+              showLogoutDialog()
             }
           }
         })
       })
     }.backgroundColor(Color.White).width('100%').height('100%')
   }
+}
+
+function showLogoutDialog() {
+  promptAction.showDialog({
+    title: $r('app.string.logout'),
+    message: $r('app.string.is_logout'),
+    buttons: [
+      {
+        text: $r('app.string.cancel'),
+        color: '#000000'
+      },
+      {
+        text: $r('app.string.config'),
+        color: '#000000'
+      }
+    ],
+  })
+    .then(data => {
+      console.info('showDialog success, click button: ' + data.index);
+    })
+    .catch((err: Error) => {
+      console.info('showDialog error: ' + err);
+    })
 }

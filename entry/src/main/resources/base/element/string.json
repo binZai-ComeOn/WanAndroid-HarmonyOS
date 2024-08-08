@@ -311,6 +311,14 @@
     {
       "name": "fail_share",
       "value": "分享失败"
+    },
+    {
+      "name": "cancel",
+      "value": "取消"
+    },
+    {
+      "name": "config",
+      "value": "确定"
     }
   ]
 }
