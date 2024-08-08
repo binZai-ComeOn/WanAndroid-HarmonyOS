@@ -255,7 +255,8 @@ export class Constants {
       new SideBarItem($r('app.media.ic_collect'), $r('app.string.collect'), ""),
       new SideBarItem($r('app.media.ic_my_share'), $r('app.string.my_share'), ""),
       new SideBarItem($r('app.media.ic_theme'), $r('app.string.theme'), ""),
-      new SideBarItem($r('app.media.ic_setting'), $r('app.string.setting'), ""));
+      new SideBarItem($r('app.media.ic_setting'), $r('app.string.setting'), ""),
+      new SideBarItem($r('app.media.ic_logout'), $r('app.string.logout'), ""));
 
   /**
    * SystemPage.ets TabBars values

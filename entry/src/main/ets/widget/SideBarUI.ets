@@ -3,6 +3,7 @@ import { Constants } from '../common/Constants'
 import { FunctionsItem } from './FunctionsItem'
 import { TitleBar } from './TitleBar'
 import { router } from '@kit.ArkUI'
+import { text } from '@kit.ArkGraphics2D'
 
 @Preview
 @Component
@@ -29,8 +30,27 @@ export struct SideBarUI {
         Text(this.ranking).fontSize(12)
       }.margin(8)
 
-      ForEach(this.functions.slice(0, this.functions.length), (item: SideBarItem) => {
-        FunctionsItem({ leftImg: item.leftImage, text: item.text, subText: item.subText })
+      ForEach(this.functions.slice(0, this.functions.length), (item: SideBarItem, index: number) => {
+        FunctionsItem({
+          leftImg: item.leftImage,
+          text: item.text,
+          subText: item.subText,
+          clickEnvent: (event: ClickEvent) => {
+            if (index == 0) {
+
+            } else if (index == 1) {
+
+            } else if (index == 2) {
+
+            } else if (index == 3) {
+
+            } else if (index == 4) {
+              router.pushUrl({ url: 'pages/SystemSettingPage' })
+            } else if (index == 5) {
+
+            }
+          }
+        })
       })
     }.backgroundColor(Color.White).width('100%').height('100%')
   }
