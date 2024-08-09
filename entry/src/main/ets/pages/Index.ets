@@ -4,16 +4,14 @@ import { SquarePage } from './SquarePage';
 import { OfficialAccountPage } from './OfficialAccountPage';
 import { ProjectsPage } from './ProjectsPage';
 import { SystemPage } from './SystemPage';
-import { ParentColumn } from '../widget/ParentColumn';
-import { SideBarUI } from '../widget/SideBarUI';
 import { SideBarTitleBar } from '../widget/SideBarTitleBar';
 
 @Entry
-@Component
+@ComponentV2
 struct Index {
-  @State currentIndex: number = 0;
+  currentIndex: number = 0;
   private tabsController: TabsController = new TabsController();
-  @State swiperImgData: Resource[] = [
+  swiperImgData: Resource[] = [
     $r('app.media.image1'),
     $r('app.media.image2'),
     $r('app.media.image3'),
@@ -21,6 +19,7 @@ struct Index {
     $r('app.media.image5'),
     $r('app.media.image6'),
   ];
+  @Local isShowSideBar: boolean = false
 
   @Builder
   tabBuilder(title: Resource, index: number, selectedImg: Resource, normalImg: Resource) {
@@ -45,7 +44,7 @@ struct Index {
 
   build() {
     Column() {
-      SideBarTitleBar() {
+      SideBarTitleBar({ isShowSideBar: this.isShowSideBar }) {
         Tabs({
           barPosition: BarPosition.End,
           controller: this.tabsController
@@ -68,13 +67,15 @@ struct Index {
         .barMode(BarMode.Fixed)
         .onAnimationStart((_index: number, targetIndex: number) => {
           this.currentIndex = targetIndex;
+          this.isShowSideBar = false
+        })
+        .onTabBarClick((index: number) => {
         })
       }
     }
   }
 
-  @
-  Builder
+  @Builder
   tabContentBuilder(text:
     Resource, index:
     number, selectedImg:

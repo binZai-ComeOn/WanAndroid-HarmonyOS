@@ -3,6 +3,8 @@
     "pages/Index",
     "pages/SearchPage",
     "pages/PointsRankPage",
-    "pages/SystemSettingPage"
+    "pages/SystemSettingPage",
+    "pages/MySharedPage",
+    "pages/ShareArticlePage"
   ]
 }

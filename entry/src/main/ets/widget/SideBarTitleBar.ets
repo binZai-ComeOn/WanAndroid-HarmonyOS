@@ -1,13 +1,14 @@
 import { ParentColumn } from './ParentColumn';
 import { SideBarUI } from './SideBarUI'
 
-@Component
+@ComponentV2
 export struct SideBarTitleBar {
+  @Local isShowSideBar: boolean = false
   @BuilderParam
   content: () => void;
 
   build() {
-    SideBarContainer(SideBarContainerType.Embed) {
+    SideBarContainer(SideBarContainerType.AUTO) {
       // 侧边栏的 ui
       SideBarUI()
       ParentColumn() {
@@ -24,6 +25,9 @@ export struct SideBarTitleBar {
         hidden: $r("app.media.ic_menu"),
         switching: $r("app.media.ic_menu")
       }
+    }).showSideBar(this.isShowSideBar)
+    .onChange((event: boolean) => {
+      this.isShowSideBar = event
     })
   }
 }

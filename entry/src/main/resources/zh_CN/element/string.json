@@ -149,6 +149,10 @@
       "value": "我的分享"
     },
     {
+      "name": "share_article",
+      "value": "分享文章"
+    },
+    {
       "name": "theme",
       "value": "夜间模式"
     },

@@ -1,5 +1,6 @@
 import { TitleBar } from '../widget/TitleBar'
 import { ParentColumn } from '../widget/ParentColumn'
+import { router } from '@kit.ArkUI'
 
 /**
  * 广场页
@@ -13,7 +14,7 @@ export struct SquarePage {
         rightImg: $r('app.media.ic_add'),
         iconSpace: true,
         onRightImgClick: () => {
-          // router.pushUrl({ url: "pages/SearchPage" })
+          router.pushUrl({ url: "pages/ShareArticlePage" })
         }
       })
     }

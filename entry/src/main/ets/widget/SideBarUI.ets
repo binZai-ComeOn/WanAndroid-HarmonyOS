@@ -3,8 +3,6 @@ import { Constants } from '../common/Constants'
 import { FunctionsItem } from './FunctionsItem'
 import { TitleBar } from './TitleBar'
 import { promptAction, router } from '@kit.ArkUI'
-import prompt from '@ohos.prompt'
-import { BusinessError } from '@kit.BasicServicesKit'
 
 @Preview
 @Component
@@ -42,7 +40,7 @@ export struct SideBarUI {
             } else if (index == 1) {
 
             } else if (index == 2) {
-
+              router.pushUrl({ url: "pages/MySharedPage" })
             } else if (index == 3) {
 
             } else if (index == 4) {
@@ -53,7 +51,7 @@ export struct SideBarUI {
           }
         })
       })
-    }.backgroundColor(Color.White).width('100%').height('100%')
+    }.backgroundColor(Color.White).width(Constants.FULL_WIDTH).height(Constants.FULL_HEIGHT)
   }
 }
 

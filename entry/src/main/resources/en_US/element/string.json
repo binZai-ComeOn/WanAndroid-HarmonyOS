@@ -149,6 +149,10 @@
       "value": "my share"
     },
     {
+      "name": "share_article",
+      "value": "Share"
+    },
+    {
       "name": "theme",
       "value": "Night mode"
     },
