@@ -7,6 +7,7 @@
     "pages/MySharedPage",
     "pages/ShareArticlePage",
     "pages/PointDetailPage",
-    "pages/SearchResultPage"
+    "pages/SearchResultPage",
+    "pages/LoginPage"
   ]
 }

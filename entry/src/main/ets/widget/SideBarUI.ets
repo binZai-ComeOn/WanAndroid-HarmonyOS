@@ -20,14 +20,18 @@ export struct SideBarUI {
           router.pushUrl({ url: "pages/PointsRankPage" })
         }
       }).margin({ right: 10 })
-      Image($r('app.media.ic_default_avatar')).border({ radius: 50 }).width(80).height(80)
-      Text(this.username).fontSize(16).fontWeight(FontWeight.Bold).margin(12)
-      Row() {
-        Text("等级：").fontSize(12)
-        Text(this.gradle).fontSize(12)
-        Text("排名：").fontSize(12).margin({ left: 10 })
-        Text(this.ranking).fontSize(12)
-      }.margin(8)
+      Column() {
+        Image($r('app.media.ic_default_avatar')).border({ radius: 50 }).width(80).height(80)
+        Text(this.username).fontSize(16).fontWeight(FontWeight.Bold).margin(12)
+        Row() {
+          Text("等级：").fontSize(12)
+          Text(this.gradle).fontSize(12)
+          Text("排名：").fontSize(12).margin({ left: 10 })
+          Text(this.ranking).fontSize(12)
+        }.margin(8)
+      }.onClick(() => {
+        router.pushUrl({url: "pages/LoginPage"})
+      })
 
       ForEach(this.functions.slice(0, this.functions.length), (item: SideBarItem, index: number) => {
         FunctionsItem({
