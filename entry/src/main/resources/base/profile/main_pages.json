@@ -6,6 +6,7 @@
     "pages/SystemSettingPage",
     "pages/MySharedPage",
     "pages/ShareArticlePage",
-    "pages/PointDetailPage"
+    "pages/PointDetailPage",
+    "pages/SearchResultPage"
   ]
 }
