@@ -1,9 +1,9 @@
 import { ParentColumn } from './ParentColumn';
 import { SideBarUI } from './SideBarUI'
 
-@ComponentV2
+@Component
 export struct SideBarTitleBar {
-  @Local isShowSideBar: boolean = false
+  @Consume isShowSideBar: boolean
   @BuilderParam
   content: () => void;
 
@@ -11,10 +11,8 @@ export struct SideBarTitleBar {
     SideBarContainer(SideBarContainerType.AUTO) {
       // 侧边栏的 ui
       SideBarUI()
-      ParentColumn() {
-        // 这里传入其它的ui
-        this.content()
-      }
+      // 这里传入其它的ui
+      this.content()
     }.controlButton({
       left: 30,
       top: 21,

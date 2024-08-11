@@ -7,9 +7,9 @@ import { SystemPage } from './SystemPage';
 import { SideBarTitleBar } from '../widget/SideBarTitleBar';
 
 @Entry
-@ComponentV2
+@Component
 struct Index {
-  currentIndex: number = 0;
+  @State currentIndex: number = 0;
   private tabsController: TabsController = new TabsController();
   swiperImgData: Resource[] = [
     $r('app.media.image1'),
@@ -19,32 +19,11 @@ struct Index {
     $r('app.media.image5'),
     $r('app.media.image6'),
   ];
-  @Local isShowSideBar: boolean = false
-
-  @Builder
-  tabBuilder(title: Resource, index: number, selectedImg: Resource, normalImg: Resource) {
-    Column() {
-      Image(this.currentIndex === index ? selectedImg : normalImg)
-        .width($r('app.float.mainPage_baseTab_size'))
-        .height($r('app.float.mainPage_baseTab_size'))
-        .objectFit(ImageFit.Contain)
-      Text(title)
-        .margin({ top: $r('app.float.mainPage_baseTab_top') })
-        .fontSize($r('app.float.tab_text_font_size'))
-        .fontColor(this.currentIndex === index ? $r('app.color.current_color') : $r('app.color.text_color'))
-    }
-    .justifyContent(FlexAlign.Center)
-    .height($r('app.float.mainPage_barHeight'))
-    .width(Constants.FULL_WIDTH)
-    .onClick(() => {
-      this.currentIndex = index;
-      this.tabsController.changeIndex(this.currentIndex);
-    })
-  }
+  @Provide isShowSideBar: boolean = false
 
   build() {
     Column() {
-      SideBarTitleBar({ isShowSideBar: this.isShowSideBar }) {
+      SideBarTitleBar() {
         Tabs({
           barPosition: BarPosition.End,
           controller: this.tabsController
@@ -69,19 +48,12 @@ struct Index {
           this.currentIndex = targetIndex;
           this.isShowSideBar = false
         })
-        .onTabBarClick((index: number) => {
-        })
       }
     }
   }
 
   @Builder
-  tabContentBuilder(text:
-    Resource, index:
-    number, selectedImg:
-    Resource, normalImg:
-    Resource
-  ) {
+  tabContentBuilder(text: Resource, index: number, selectedImg: Resource, normalImg: Resource) {
     TabContent() {
       Column() {
         if (index == 0) {
@@ -100,5 +72,26 @@ struct Index {
     .backgroundColor(Color.White)
     .align(Alignment.Top)
     .tabBar(this.tabBuilder(text, index, selectedImg, normalImg))
+  }
+
+  @Builder
+  tabBuilder(title: Resource, index: number, selectedImg: Resource, normalImg: Resource) {
+    Column() {
+      Image(this.currentIndex === index ? selectedImg : normalImg)
+        .width($r('app.float.mainPage_baseTab_size'))
+        .height($r('app.float.mainPage_baseTab_size'))
+        .objectFit(ImageFit.Contain)
+      Text(title)
+        .margin({ top: $r('app.float.mainPage_baseTab_top') })
+        .fontSize($r('app.float.tab_text_font_size'))
+        .fontColor(this.currentIndex === index ? $r('app.color.current_color') : $r('app.color.text_color'))
+    }
+    .justifyContent(FlexAlign.Center)
+    .height($r('app.float.mainPage_barHeight'))
+    .width(Constants.FULL_WIDTH)
+    .onClick(() => {
+      this.currentIndex = index;
+      this.tabsController.changeIndex(this.currentIndex);
+    })
   }
 }
