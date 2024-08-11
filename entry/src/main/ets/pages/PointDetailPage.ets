@@ -3,11 +3,14 @@ import { ParentColumn } from '../widget/ParentColumn'
 import { TitleBar } from '../widget/TitleBar'
 import { router } from '@kit.ArkUI'
 
-@Preview
+/**
+ * 我的积分明细页
+ */
+@Entry
 @Component
 export struct PointDetailPage {
   build() {
-    ParentColumn() {
+    Column() {
       TitleBar({
         leftImg: $r('app.media.ic_back'),
         onLeftImgClick: (event: ClickEvent) => {
@@ -20,7 +23,8 @@ export struct PointDetailPage {
         }
       })
       this.PointItem()
-    }
+    }.width(Constants.FULL_WIDTH).height(Constants.FULL_HEIGHT)
+    .padding({ left: Constants.PAGE_MARGIN_LEFT, right: Constants.PAGE_MARGIN_RIGHT })
   }
 
   @Builder

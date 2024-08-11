@@ -5,6 +5,7 @@
     "pages/PointsRankPage",
     "pages/SystemSettingPage",
     "pages/MySharedPage",
-    "pages/ShareArticlePage"
+    "pages/ShareArticlePage",
+    "pages/PointDetailPage"
   ]
 }

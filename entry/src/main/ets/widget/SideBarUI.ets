@@ -36,7 +36,7 @@ export struct SideBarUI {
           subText: item.subText,
           clickEnvent: (event: ClickEvent) => {
             if (index == 0) {
-
+              router.pushUrl({ url: "pages/PointDetailPage" })
             } else if (index == 1) {
 
             } else if (index == 2) {
