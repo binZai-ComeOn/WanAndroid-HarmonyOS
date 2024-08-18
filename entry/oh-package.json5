@@ -5,6 +5,9 @@
   "main": "",
   "author": "",
   "license": "",
-  "dependencies": {}
+  "dependencies": {
+    // 引入lib_common 静态库
+    "@ohos/lib_common": "file:../lib_common"
+  }
 }
 

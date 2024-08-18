@@ -1,9 +1,7 @@
 import { Constants } from '../common/Constants'
-import { SideBarUI } from '../widget/SideBarUI';
 import { TitleBar } from '../widget/TitleBar'
-import { router } from '@kit.ArkUI';
-import { SideBarTitleBar } from '../widget/SideBarTitleBar';
 import { ParentColumn } from '../widget/ParentColumn';
+import { router } from '@kit.ArkUI';
 
 @Preview
 @Component
