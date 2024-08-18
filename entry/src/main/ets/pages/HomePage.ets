@@ -2,6 +2,9 @@ import { Constants } from '../common/Constants'
 import { TitleBar } from '../widget/TitleBar'
 import { ParentColumn } from '../widget/ParentColumn';
 import { router } from '@kit.ArkUI';
+import { LogUtil } from '@pura/harmony-utils';
+import { HttpRequest } from '@ohos/lib_common/src/main/ets/network/repository/HttpRequest'
+import { ArticleBean } from '@ohos/lib_common/src/main/ets/bean/ArticleBean'
 
 @Preview
 @Component
@@ -17,6 +20,14 @@ export struct HomePage {
     $r('app.media.image6'),
   ];
 
+  /**
+   * aboutToAppear函数在创建自定义组件的新实例后，在执行其build()函数之前执行。
+   * 允许在aboutToAppear函数中改变状态变量，更改将在后续执行build()函数中生效。
+   */
+  aboutToAppear(): void {
+    HttpRequest.getInstance().get<ArticleBean>("/user_article/list/1/json",ArticleBean)
+  }
+
   build() {
     ParentColumn() {
       TitleBar({
@@ -24,7 +35,7 @@ export struct HomePage {
         rightImg: $r('app.media.ic_search'),
         iconSpace: true,
         onRightImgClick: () => {
-          router.pushUrl({url:"pages/SearchPage"})
+          router.pushUrl({ url: "pages/SearchPage" })
         }
       })
       Swiper(this.swiperController) {
