@@ -3,6 +3,14 @@
     {
       "name": "page_show",
       "value": "page from package"
+    },
+    {
+      "name": "request_time_out",
+      "value": "Request timed out, please try again later！"
+    },
+    {
+      "name": "request_exception",
+      "value": "Request exception, please try again later！"
     }
   ]
 }

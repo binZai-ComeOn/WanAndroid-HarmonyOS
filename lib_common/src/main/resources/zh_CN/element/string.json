@@ -3,6 +3,14 @@
     {
       "name": "page_show",
       "value": "page from package"
+    },
+    {
+      "name": "request_time_out",
+      "value": "请求超时，请稍后再试！"
+    },
+    {
+      "name": "request_exception",
+      "value": "请求异常，请稍后再试！"
     }
   ]
 }

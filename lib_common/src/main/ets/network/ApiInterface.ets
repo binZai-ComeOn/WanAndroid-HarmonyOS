@@ -1,5 +1,5 @@
 export class ApiInterface {
-  static baseUrl = "https://www.wanandroid.com/"
+  static baseUrl = "https://www.wanandroid.com"
 
   /**
    * 搜索热词
