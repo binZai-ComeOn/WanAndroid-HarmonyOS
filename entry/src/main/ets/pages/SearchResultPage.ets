@@ -11,6 +11,10 @@ import { TitleBar } from '../widget/TitleBar'
 export struct SearchResultPage {
   title: string = ""
 
+  aboutToAppear(): void {
+
+  }
+
   build() {
 
     Column() {

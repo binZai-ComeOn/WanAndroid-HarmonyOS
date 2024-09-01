@@ -9,6 +9,11 @@ import { ParentColumn } from '../widget/ParentColumn'
 @Entry
 @Component
 export struct PointsRankPage {
+
+  aboutToAppear(): void {
+
+  }
+
   build() {
     Column() {
       TitleBar({

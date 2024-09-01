@@ -5,6 +5,7 @@ import { router } from '@kit.ArkUI';
 import HomeViewModel from '../viewmodel/HomeViewModel';
 import { ArrayList, List } from '@kit.ArkTS';
 import { BannerBean } from '@ohos/lib_common/src/main/ets/bean/BannerBean';
+import { ArticleBean } from '@ohos/lib_common/src/main/ets/bean/ArticleBean';
 
 @Preview
 @Component
@@ -12,13 +13,31 @@ export struct HomePage {
   @State currentIndex: number = 0;
   private swiperController: SwiperController = new SwiperController();
   @State banners: BannerBean[] = [];
+  @State articles: ArrayList<ArticleBean> = new ArrayList();
+  /**
+   * Parameters for pagination
+   */
+  @State page : number = 0
 
   /**
    * aboutToAppear函数在创建自定义组件的新实例后，在执行其build()函数之前执行。
    * 允许在aboutToAppear函数中改变状态变量，更改将在后续执行build()函数中生效。
    */
   aboutToAppear(): void {
+    HomeViewModel.getBanners().then(((banners: BannerBean[]) => {
+      this.banners = banners
+    }))
+    HomeViewModel.getArticleTop().then(((articles: ArrayList<ArticleBean>) => {
+      articles.forEach((item: ArticleBean) => {
+        this.articles.add(item)
+      })
 
+      HomeViewModel.getArticles(this.page).then(((articles: ArrayList<ArticleBean>) => {
+        articles.forEach((item: ArticleBean) => {
+          this.articles.add(item)
+        })
+      }))
+    }))
   }
 
   build() {
@@ -49,11 +68,7 @@ export struct HomePage {
       .onAnimationStart(async () => {
 
       })
-      .onAppear(() => {
-        HomeViewModel.getBanners().then(((banners: BannerBean[]) => {
-          this.banners = banners
-        }))
-      })
+      //ComposeListItem()
     }
   }
 }

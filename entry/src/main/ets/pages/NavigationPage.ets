@@ -6,6 +6,10 @@ export struct NavigationPage {
   tabs: Resource[] = [$r('app.string.system'), $r('app.string.system'), $r('app.string.system')];
   @State currentIndex: number = 0;
 
+  aboutToAppear(): void {
+
+  }
+
   build() {
     Tabs({ barPosition: BarPosition.Start }) {
       ForEach(this.tabs, (tabName: Resource, index: number) => {

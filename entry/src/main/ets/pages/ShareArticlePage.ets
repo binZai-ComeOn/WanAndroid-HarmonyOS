@@ -8,6 +8,11 @@ import { router } from '@kit.ArkUI'
 @Entry
 @Component
 export struct ShareArticlePage {
+
+  aboutToAppear(): void {
+
+  }
+
   build() {
     Column() {
       TitleBar({

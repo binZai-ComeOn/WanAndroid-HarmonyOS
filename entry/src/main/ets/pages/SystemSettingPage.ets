@@ -12,6 +12,10 @@ export struct SystemSettingPage {
   settingList = [new SystemSettingBean($r('app.string.clear_cache'), "120kb"),
     new SystemSettingBean($r('app.string.sourse_code'), "https://github.com/binZai-ComeOn/WanAndroid-HarmonyOS")]
 
+  aboutToAppear(): void {
+
+  }
+
   build() {
     Column() {
       TitleBar({

@@ -9,6 +9,10 @@ import { TitleBar } from '../widget/TitleBar';
 struct SearchPage {
   searchText: string = ""
 
+  aboutToAppear(): void {
+
+  }
+
   build() {
     Column() {
       TitleBar({

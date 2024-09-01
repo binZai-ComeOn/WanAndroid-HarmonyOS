@@ -9,6 +9,11 @@ import { router } from '@kit.ArkUI'
 @Entry
 @Component
 export struct PointDetailPage {
+
+  aboutToAppear(): void {
+
+  }
+
   build() {
     Column() {
       TitleBar({

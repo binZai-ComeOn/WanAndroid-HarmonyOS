@@ -11,6 +11,10 @@ export struct LoginPage {
   @State isLogin: boolean = true
   @State title: Resource = $r('app.string.login')
 
+  aboutToAppear(): void {
+
+  }
+
   build() {
     Column() {
       if (this.isLogin) {

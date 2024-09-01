@@ -7,6 +7,11 @@ import { router } from '@kit.ArkUI'
  */
 @Component
 export struct SquarePage {
+
+  aboutToAppear(): void {
+
+  }
+
   build() {
     ParentColumn() {
       TitleBar({

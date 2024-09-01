@@ -13,6 +13,10 @@ import { ParentColumn } from '../widget/ParentColumn'
 export struct SystemPage {
   tabs: Resource[] = Constants.SYSTEM_PAGE_TABBARS;
 
+  aboutToAppear(): void {
+
+  }
+
   build() {
     ParentColumn() {
       TitleBar({

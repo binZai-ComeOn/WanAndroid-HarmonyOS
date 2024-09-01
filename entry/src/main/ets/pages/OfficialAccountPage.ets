@@ -7,6 +7,11 @@ import { ParentColumn } from '../widget/ParentColumn'
  */
 @Component
 export struct OfficialAccountPage {
+
+  aboutToAppear(): void {
+
+  }
+
   build() {
     ParentColumn() {
       TitleBar({
