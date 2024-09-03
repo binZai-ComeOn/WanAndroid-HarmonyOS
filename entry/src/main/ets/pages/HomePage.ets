@@ -17,7 +17,7 @@ export struct HomePage {
   /**
    * Parameters for pagination
    */
-  @State page : number = 0
+  @State page: number = 0
 
   /**
    * aboutToAppear函数在创建自定义组件的新实例后，在执行其build()函数之前执行。
@@ -68,7 +68,26 @@ export struct HomePage {
       .onAnimationStart(async () => {
 
       })
-      //ComposeListItem()
+      // 遍历列表可以使用 ComposeListItem
+      // ComposeListItem()
+      this.HomeListItem()
     }
+  }
+
+  @Builder
+  HomeListItem() {
+    Column() {
+      Row() {
+        Row() {
+          Text("公众号").fontSize(10).border({ width: 0.5, radius: 2 })
+          Text("鸿洋")
+        }.layoutWeight(1)
+
+        Text("时间").layoutWeight(1).textAlign(TextAlign.End)
+      }
+
+      Text("这是标题").width(Constants.FULL_WIDTH).textAlign(TextAlign.Start)
+      Text("广场Tab / 自助").width(Constants.FULL_WIDTH).textAlign(TextAlign.Start)
+    }.padding({ top: 8, bottom: 8 }).width(Constants.FULL_WIDTH)
   }
 }

@@ -115,6 +115,232 @@
     {
       "name": "title_font_color",
       "value": "#182431"
+    },
+
+
+
+    {
+      "name": "theme_pink_color_primary",
+      "value": "#E6E6E6"
+    },
+
+    {
+      "name": "common_color",
+      "value": "#19191B"
+    },
+
+    {
+      "name": "item_title",
+      "value": "#19191B"
+    },
+
+    {
+      "name": "item_author",
+      "value": "#616161"
+    },
+    {
+      "name": "item_desc",
+      "value": "#757575"
+    },
+    {
+      "name": "item_time",
+      "value": "#757575"
+    },
+    {
+      "name": "item_date",
+      "value": "#757575"
+    },
+    {
+      "name": "item_chapter",
+      "value": "#757575"
+    },
+    {
+      "name": "item_tag_tv",
+      "value": "#ffFFFFFF"
+    },
+    {
+      "name": "item_nav_color_tv",
+      "value": "#19191B"
+    },
+    {
+      "name": "color_title_bg",
+      "value": "#CCFFFFFF"
+    },
+    {
+      "name": "color_about_tv",
+      "value": "#757575"
+    },
+    {
+      "name": "transparent_75",
+      "value": "#ba000000"
+    },
+    {
+      "name": "vertical_tab_layout_bg",
+      "value": "#F5F5F5"
+    },
+    {
+      "name": "vertical_tab_layout_indicator_color",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "item_flow_layout_bg",
+      "value": "#EEEEEE"
+    },
+    {
+      "name": "arrow_color",
+      "value": "#616161"
+    },
+    {
+      "name": "sticky_header_bg",
+      "value": "#F5F5F5"
+    },
+    {
+      "name": "light_red",
+      "value": "#e26d2e"
+    },
+    {
+      "name": "deep_red",
+      "value": "#dc3b1f"
+    },
+    {
+      "name": "while_most_color",
+      "value": "#e4e4e4"
+    },
+    {
+      "name": "title_black",
+      "value": "#222222"
+    },
+    {
+      "name": "grey_search",
+      "value": "#FF999999"
+    },
+    {
+      "name": "White",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "Black",
+      "value": "#000000"
+    },
+    {
+      "name": "Red",
+      "value": "#f44336"
+    },
+    {
+      "name": "Pink",
+      "value": "#e91e63"
+    },
+    {
+      "name": "Purple",
+      "value": "#9c27b0"
+    },
+    {
+      "name": "Deep_Purple",
+      "value": "#673ab7"
+    },
+    {
+      "name": "Indigo",
+      "value": "#3f51b5"
+    },
+    {
+      "name": "Blue",
+      "value": "#2196f3"
+    },
+    {
+      "name": "Light_Blue",
+      "value": "#03a9f4"
+    },
+    {
+      "name": "Cyan",
+      "value": "#00bcd4"
+    },
+    {
+      "name": "Teal",
+      "value": "#009688"
+    },
+    {
+      "name": "Green",
+      "value": "#4caf50"
+    },
+    {
+      "name": "Light_Green",
+      "value": "#8bc34a"
+    },
+    {
+      "name": "Lime",
+      "value": "#cddc39"
+    },
+    {
+      "name": "Yellow",
+      "value": "#ffeb3b"
+    },
+    {
+      "name": "Amber",
+      "value": "#ffc107"
+    },
+    {
+      "name": "Orange",
+      "value": "#ff9800"
+    },
+    {
+      "name": "Deep_Orange",
+      "value": "#ff5722"
+    },
+    {
+      "name": "Brown",
+      "value": "#795548"
+    },
+    {
+      "name": "Grey",
+      "value": "#9e9e9e"
+    },
+    {
+      "name": "Blue_Grey",
+      "value": "#607d8b"
+    },
+    {
+      "name": "Grey50",
+      "value": "#FAFAFA"
+    },
+    {
+      "name": "Grey100",
+      "value": "#F5F5F5"
+    },
+    {
+      "name": "Grey200",
+      "value": "#EEEEEE"
+    },
+    {
+      "name": "Grey300",
+      "value": "#E0E0E0"
+    },
+    {
+      "name": "Grey400",
+      "value": "#bdbdbd"
+    },
+    {
+      "name": "Grey500",
+      "value": "#9e9e9e"
+    },
+    {
+      "name": "Grey600",
+      "value": "#757575"
+    },
+    {
+      "name": "Grey700",
+      "value": "#616161"
+    },
+    {
+      "name": "Grey800",
+      "value": "#424242"
+    },
+    {
+      "name": "Grey900",
+      "value": "#212121"
+    },
+    {
+      "name": "bg_transparent",
+      "value": "#339E9E9E"
     }
   ]
 }
