@@ -9,6 +9,7 @@ import { ParentColumn } from '../widget/ParentColumn'
 /**
  * 体系页
  */
+@Preview
 @Component
 export struct SystemPage {
   tabs: Resource[] = Constants.SYSTEM_PAGE_TABBARS;
@@ -35,12 +36,24 @@ export struct SystemPage {
   }
 
   @Builder
-  private TopTabBarContent(tabName: Resource) {
+  TopTabBarContent(tabName: Resource) {
     if (this.tabs[0] == tabName) {
-      Text(tabName)
+      this.SystemItem()
+      // RelativeContainer() {
+      //   Text("测试").fontSize(16).padding({ left:10,top: 10 }).fontColor($r('app.color.item_title'))
+      // }
+      // .backgroundColor($r('app.color.viewBackground'))
     } else if (this.tabs[1] == tabName) {
-      NavigationPage()
+      //NavigationPage()
     }
+  }
+
+  @Builder
+  public SystemItem() {
+    RelativeContainer() {
+      Text("测试").fontSize(16).padding({ left:10,top: 10 }).fontColor($r('app.color.item_title'))
+    }
+    .backgroundColor($r('app.color.viewBackground'))
   }
 
   @Builder

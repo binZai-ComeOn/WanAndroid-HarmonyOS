@@ -341,6 +341,42 @@
     {
       "name": "bg_transparent",
       "value": "#339E9E9E"
+    },
+    {
+      "name": "colorPrimary",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "colorPrimaryDark",
+      "value": "#C2185B"
+    },
+    {
+      "name": "colorAccent",
+      "value": "#00bcd4"
+    },
+    {
+      "name": "textColorPrimary",
+      "value": "#616161"
+    },
+    {
+      "name": "viewBackground",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "windowBackground",
+      "value": "#F5F5F5"
+    },
+    {
+      "name": "line_divider",
+      "value": "#E0E0E0"
+    },
+    {
+      "name": "list_divider",
+      "value": "#bdbdbd"
+    },
+    {
+      "name": "mask_color",
+      "value": "#f5f5f5"
     }
   ]
 }

@@ -68,6 +68,7 @@ export struct HomePage {
       .onAnimationStart(async () => {
 
       })
+
       // 遍历列表可以使用 ComposeListItem
       // ComposeListItem()
       this.HomeListItem()
@@ -79,15 +80,59 @@ export struct HomePage {
     Column() {
       Row() {
         Row() {
-          Text("公众号").fontSize(10).border({ width: 0.5, radius: 2 })
-          Text("鸿洋")
+          Text($r('app.string.topping'))
+            .fontSize(10)
+            .padding({
+              left: 4,
+              right: 4,
+              top: 2,
+              bottom: 2
+            })
+            .fontColor($r('app.color.Red'))
+            .border({ width: 0.5, radius: 2, color: $r('app.color.Red') })
+          Blank().width(5)
+          Text($r('app.string.xin'))
+            .fontSize(10)
+            .padding({
+              left: 4,
+              right: 4,
+              top: 2,
+              bottom: 2
+            })
+            .fontColor($r('app.color.Red'))
+            .border({ width: 0.5, radius: 2, color: $r('app.color.Red') })
+          Blank().width(5)
+          Text("公众号")
+            .border({ width: 0.5, radius: 2, color: $r('app.color.colorAccent') })
+            .padding({
+              left: 4,
+              right: 4,
+              top: 2,
+              bottom: 2
+            })
+            .fontColor($r('app.color.colorAccent'))
+            .fontSize(10)
+          Blank().width(5)
+          Text("鸿洋").fontSize(12).fontColor($r('app.color.item_author'))
         }.layoutWeight(1)
 
-        Text("时间").layoutWeight(1).textAlign(TextAlign.End)
+        Text("2024-01-01").layoutWeight(1).textAlign(TextAlign.End).fontColor($r('app.color.item_date')).fontSize(12)
       }
 
-      Text("这是标题").width(Constants.FULL_WIDTH).textAlign(TextAlign.Start)
-      Text("广场Tab / 自助").width(Constants.FULL_WIDTH).textAlign(TextAlign.Start)
+      Text("这是标题")
+        .width(Constants.FULL_WIDTH)
+        .fontSize(14)
+        .padding({ top: 8 })
+        .textAlign(TextAlign.Start)
+        .fontColor($r('app.color.item_title'))
+      Text("广场Tab / 自助")
+        .width(Constants.FULL_WIDTH)
+        .textAlign(TextAlign.Start)
+        .fontSize(10)
+        .padding({ top: 8 })
+        .fontColor($r('app.color.item_chapter'))
+      Blank().height(8)
+      Row().width(Constants.FULL_WIDTH).height(0.5).backgroundColor($r('app.color.list_divider'))
     }.padding({ top: 8, bottom: 8 }).width(Constants.FULL_WIDTH)
   }
 }

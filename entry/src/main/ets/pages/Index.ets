@@ -5,6 +5,7 @@ import { OfficialAccountPage } from './OfficialAccountPage';
 import { ProjectsPage } from './ProjectsPage';
 import { SystemPage } from './SystemPage';
 import { SideBarTitleBar } from '../widget/SideBarTitleBar';
+import { TextRowFlow } from '../widget/TextRowFlow';
 
 @Entry
 @Component
@@ -23,6 +24,7 @@ struct Index {
 
   build() {
     Column() {
+      //TextRowFlow()
       SideBarTitleBar() {
         Tabs({
           barPosition: BarPosition.End,
