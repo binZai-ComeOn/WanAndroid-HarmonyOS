@@ -38,22 +38,49 @@ export struct SystemPage {
   @Builder
   TopTabBarContent(tabName: Resource) {
     if (this.tabs[0] == tabName) {
-      this.SystemItem()
-      // RelativeContainer() {
-      //   Text("测试").fontSize(16).padding({ left:10,top: 10 }).fontColor($r('app.color.item_title'))
-      // }
-      // .backgroundColor($r('app.color.viewBackground'))
-    } else if (this.tabs[1] == tabName) {
-      //NavigationPage()
-    }
-  }
+      Column() {
+        RelativeContainer() {
+          Text("测试")
+            .fontSize(16)
+            .padding({ top: 10, bottom: 10 })
+            .fontColor($r('app.color.item_title'))
+            .alignRules({
+              top: { anchor: "__container__", align: VerticalAlign.Top },
+              left: { anchor: "__container__", align: HorizontalAlign.Start },
+              right: { anchor: "ic_arrow_right", align: HorizontalAlign.End }
+            })
+            .id("item_title")
 
-  @Builder
-  public SystemItem() {
-    RelativeContainer() {
-      Text("测试").fontSize(16).padding({ left:10,top: 10 }).fontColor($r('app.color.item_title'))
+          Text("Android studio 相关").fontSize(10).fontColor($r("app.color.item_desc"))
+            .alignRules({
+              top: { anchor: "item_title", align: VerticalAlign.Bottom },
+              bottom: { anchor: "list_divider", align: VerticalAlign.Top },
+              left: { anchor: "__container__", align: HorizontalAlign.Start },
+              right: { anchor: "ic_arrow_right", align: HorizontalAlign.End }
+            }).id("item_desc")
+
+          Image($r('app.media.ic_arrow_right')).width(20).height(20).alignRules({
+            top: { anchor: "__container__", align: VerticalAlign.Top },
+            bottom: { anchor: "__container__", align: VerticalAlign.Bottom },
+            right: { anchor: "__container__", align: HorizontalAlign.End }
+          }).id("ic_arrow_right")
+
+          Row()
+            .height(0.5)
+            .width(Constants.FULL_WIDTH)
+            .backgroundColor($r('app.color.list_divider'))
+            .alignRules({
+              top: { anchor: "__container__", align: VerticalAlign.Bottom },
+              left: { anchor: "__container__", align: HorizontalAlign.Start },
+              right: { anchor: "__container__", align: HorizontalAlign.End }
+            })
+            .id("list_divider")
+        }.height(70)
+        .backgroundColor($r('app.color.viewBackground'))
+      }.height(Constants.FULL_HEIGHT)
+    } else if (this.tabs[1] == tabName) {
+      NavigationPage()
     }
-    .backgroundColor($r('app.color.viewBackground'))
   }
 
   @Builder
