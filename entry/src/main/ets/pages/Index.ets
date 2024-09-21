@@ -12,14 +12,6 @@ import { TextRowFlow } from '../widget/TextRowFlow';
 struct Index {
   @State currentIndex: number = 0;
   private tabsController: TabsController = new TabsController();
-  swiperImgData: Resource[] = [
-    $r('app.media.image1'),
-    $r('app.media.image2'),
-    $r('app.media.image3'),
-    $r('app.media.image4'),
-    $r('app.media.image5'),
-    $r('app.media.image6'),
-  ];
   @Provide isShowSideBar: boolean = false
 
   build() {
