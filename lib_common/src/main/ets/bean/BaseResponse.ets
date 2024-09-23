@@ -1,26 +1,51 @@
-export default class ResponseResult {
+export default class ResponseResult<T> {
   /**
    * 服务器状态码 这里0表示请求成功
    */
-  errorCode: number = 0;
+  private _errorCode: number = 0;
+
+  public set errorCode(value: number) {
+    this._errorCode = value;
+  }
+
+  public get errorCode(): number {
+    return this._errorCode;
+  }
 
   /**
    * 错误信息
    */
-  errorMsg: string | Resource;
+  private _errorMsg: string | Resource;
+
+  public set errorMsg(value: string | Resource) {
+    this._errorMsg = value;
+  }
+
+  public get errorMsg(): string | Resource {
+    return this._errorMsg;
+  }
 
   /**
    * Data returned by the network request.
    */
-  data: string;
+  private _data: T | undefined;
 
-  constructor() {
-    this.errorCode = -1;
-    this.errorMsg = '';
-    this.data = '';
+  public set data(value: T | undefined) {
+    this._data = value;
   }
 
+  public get data(): T | undefined{
+    return this._data;
+  }
+
+  constructor() {
+    this._errorCode = -1;
+    this._errorMsg = '';
+  }
+
+
+
   isSuccessed() : boolean{
-    return this.errorCode == 0
+    return this._errorCode == 0
   }
 }

@@ -1,5 +1,6 @@
 import LazyDataSource from '@ohos/lib_common/src/main/ets/network/LazyDataSource'
 import ResponseResult from '@ohos/lib_common/src/main/ets/bean/BaseResponse';
+import BaseResponseList from '@ohos/lib_common/src/main/ets/bean/BaseResponseList';
 import { ApiInterface } from '@ohos/lib_common/src/main/ets/network/ApiInterface';
 import { BannerBean } from '@ohos/lib_common/src/main/ets/bean/BannerBean'
 import { httpRequestGet } from '@ohos/lib_common/src/main/ets/network/repository/HttpRequest';
@@ -19,7 +20,7 @@ export class HomeViewModel {
    */
   getBanners(): Promise<BannerBean[]> {
     return new Promise((resolve: Function) => {
-      httpRequestGet(ApiInterface.banner).then((data: ResponseResult) => {
+      httpRequestGet<BannerBean[]>(ApiInterface.banner).then((data: ResponseResult<BannerBean[]>) => {
         resolve(data.data);
       });
     });
@@ -31,7 +32,7 @@ export class HomeViewModel {
    */
   getArticleTop(): Promise<ArrayList<ArticleBean>> {
     return new Promise((resolve: Function) => {
-      httpRequestGet(ApiInterface.articleTop).then((data: ResponseResult) => {
+      httpRequestGet<ArrayList<ArticleBean>>(ApiInterface.articleTop).then((data: ResponseResult<ArrayList<ArticleBean>>) => {
         resolve(data.data);
       });
     });
@@ -42,11 +43,12 @@ export class HomeViewModel {
    * @param page Parameters for pagination
    * @returns
    */
-  getArticles(page: number): Promise<ArrayList<ArticleBean>> {
+  getArticles(page: number): Promise<BaseResponseList<ArrayList<ArticleBean>>> {
     return new Promise((resolve: Function) => {
-      httpRequestGet(ApiInterface.articleList.replace("{page}", page.toString())).then((data: ResponseResult) => {
-        resolve(data.data);
-      });
+      httpRequestGet<BaseResponseList<ArrayList<ArticleBean>>>(ApiInterface.articleList.replace("{page}", page.toString()))
+        .then((data: ResponseResult<BaseResponseList<ArrayList<ArticleBean>>>) => {
+          resolve(data.data);
+        });
     });
   }
 }

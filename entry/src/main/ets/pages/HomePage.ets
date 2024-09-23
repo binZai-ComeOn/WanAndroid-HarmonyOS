@@ -3,9 +3,11 @@ import { TitleBar } from '../widget/TitleBar'
 import { ParentColumn } from '../widget/ParentColumn';
 import { router } from '@kit.ArkUI';
 import HomeViewModel from '../viewmodel/HomeViewModel';
-import { ArrayList, List } from '@kit.ArkTS';
+import { ArrayList } from '@kit.ArkTS';
 import { BannerBean } from '@ohos/lib_common/src/main/ets/bean/BannerBean';
 import { ArticleBean } from '@ohos/lib_common/src/main/ets/bean/ArticleBean';
+import BaseResponseList from '@ohos/lib_common/src/main/ets/bean/BaseResponseList';
+import { data } from '@kit.TelephonyKit';
 
 @Preview
 @Component
@@ -27,16 +29,21 @@ export struct HomePage {
     HomeViewModel.getBanners().then(((banners: BannerBean[]) => {
       this.banners = banners
     }))
-    HomeViewModel.getArticleTop().then(((articles: ArrayList<ArticleBean>) => {
-      articles.forEach((item: ArticleBean) => {
+    // HomeViewModel.getArticleTop().then(((articles: ArrayList<ArticleBean>) => {
+    //   console.log("articles22:"+articles.length+","+this.articles.length)
+    //   articles.forEach((item: ArticleBean) => {
+    //     //this.articles.add(item)
+    //   })
+    //   console.log("articles:"+articles.length+","+this.articles.length)
+    //
+    // }))
+
+    HomeViewModel.getArticles(this.page).then(((data: BaseResponseList<ArrayList<ArticleBean>>) => {
+        console.log("articles22:"+data.datas.length+","+this.articles.length)
+      data.datas.forEach((item: ArticleBean) => {
         this.articles.add(item)
       })
-
-      HomeViewModel.getArticles(this.page).then(((articles: ArrayList<ArticleBean>) => {
-        articles.forEach((item: ArticleBean) => {
-          this.articles.add(item)
-        })
-      }))
+      console.log("articles1:"+data.datas.length+","+this.articles.length)
     }))
   }
 
@@ -71,7 +78,14 @@ export struct HomePage {
 
       // 遍历列表可以使用 ComposeListItem
       // ComposeListItem()
-      this.HomeListItem()
+      List({ space: 20, initialIndex: 0 }) {
+        ForEach(this.articles.convertToArray(), (item: ArticleBean) => {
+          ListItem() {
+            this.HomeListItem()
+          }
+        }, (item: string) => item)
+      }.width('90%')
+      .scrollBar(BarState.Off)
     }
   }
 
