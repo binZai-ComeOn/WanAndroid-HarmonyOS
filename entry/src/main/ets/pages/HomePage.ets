@@ -7,7 +7,7 @@ import { ArrayList } from '@kit.ArkTS';
 import { BannerBean } from '@ohos/lib_common/src/main/ets/bean/BannerBean';
 import { ArticleBean } from '@ohos/lib_common/src/main/ets/bean/ArticleBean';
 import BaseResponseList from '@ohos/lib_common/src/main/ets/bean/BaseResponseList';
-import { data } from '@kit.TelephonyKit';
+import TimeUtil from '@ohos/lib_common/src/main/ets/utils/TimeUtil';
 
 @Preview
 @Component
@@ -15,7 +15,7 @@ export struct HomePage {
   @State currentIndex: number = 0;
   private swiperController: SwiperController = new SwiperController();
   @State banners: BannerBean[] = [];
-  @State articles: ArrayList<ArticleBean> = new ArrayList();
+  @State articles: ArticleBean[] = [];
   /**
    * Parameters for pagination
    */
@@ -41,9 +41,13 @@ export struct HomePage {
     HomeViewModel.getArticles(this.page).then(((data: BaseResponseList<ArrayList<ArticleBean>>) => {
         console.log("articles22:"+data.datas.length+","+this.articles.length)
       data.datas.forEach((item: ArticleBean) => {
-        this.articles.add(item)
+        item.releaseTime = TimeUtil.millisecond2Time(item.publishTime)
+        this.articles.push(item)
       })
       console.log("articles1:"+data.datas.length+","+this.articles.length)
+      this.articles.forEach((a: ArticleBean) => {
+        console.log(""+a.title)
+      })
     }))
   }
 
@@ -79,61 +83,67 @@ export struct HomePage {
       // 遍历列表可以使用 ComposeListItem
       // ComposeListItem()
       List({ space: 20, initialIndex: 0 }) {
-        ForEach(this.articles.convertToArray(), (item: ArticleBean) => {
+        ForEach(this.articles, (item: ArticleBean) => {
           ListItem() {
-            this.HomeListItem()
+            this.HomeListItem(item)
           }
         }, (item: string) => item)
-      }.width('90%')
+      }
       .scrollBar(BarState.Off)
     }
   }
 
   @Builder
-  HomeListItem() {
+  HomeListItem(item: ArticleBean) {
     Column() {
       Row() {
         Row() {
-          Text($r('app.string.topping'))
-            .fontSize(10)
-            .padding({
-              left: 4,
-              right: 4,
-              top: 2,
-              bottom: 2
-            })
-            .fontColor($r('app.color.Red'))
-            .border({ width: 0.5, radius: 2, color: $r('app.color.Red') })
-          Blank().width(5)
-          Text($r('app.string.xin'))
-            .fontSize(10)
-            .padding({
-              left: 4,
-              right: 4,
-              top: 2,
-              bottom: 2
-            })
-            .fontColor($r('app.color.Red'))
-            .border({ width: 0.5, radius: 2, color: $r('app.color.Red') })
-          Blank().width(5)
-          Text("公众号")
-            .border({ width: 0.5, radius: 2, color: $r('app.color.colorAccent') })
-            .padding({
-              left: 4,
-              right: 4,
-              top: 2,
-              bottom: 2
-            })
-            .fontColor($r('app.color.colorAccent'))
-            .fontSize(10)
-          Blank().width(5)
-          Text("鸿洋").fontSize(12).fontColor($r('app.color.item_author'))
+          if (item.top == "1") {
+            Text($r('app.string.topping'))
+              .fontSize(10)
+              .padding({
+                left: 4,
+                right: 4,
+                top: 2,
+                bottom: 2
+              })
+              .fontColor($r('app.color.Red'))
+              .border({ width: 0.5, radius: 2, color: $r('app.color.Red') })
+            Blank().width(5)
+          }
+          if (item.fresh) {
+            Text($r('app.string.xin'))
+              .fontSize(10)
+              .padding({
+                left: 4,
+                right: 4,
+                top: 2,
+                bottom: 2
+              })
+              .fontColor($r('app.color.Red'))
+              .border({ width: 0.5, radius: 2, color: $r('app.color.Red') })
+            Blank().width(5)
+          }
+          if (item.tags.length > 0) {
+            Text(item.tags[0].name)
+              .border({ width: 0.5, radius: 2, color: $r('app.color.colorAccent') })
+              .padding({
+                left: 4,
+                right: 4,
+                top: 2,
+                bottom: 2
+              })
+              .fontColor($r('app.color.colorAccent'))
+              .fontSize(10)
+            Blank().width(5)
+          }
+          Text(item.author.toString()).fontSize(12).fontColor($r('app.color.item_author'))
         }.layoutWeight(1)
 
-        Text("2024-01-01").layoutWeight(1).textAlign(TextAlign.End).fontColor($r('app.color.item_date')).fontSize(12)
+        Text(item.releaseTime.toString()).layoutWeight(1).textAlign(TextAlign.End).fontColor($r('app.color.item_date')).fontSize(12)
       }
 
-      Text("这是标题")
+      Text(item.title.toString())
         .width(Constants.FULL_WIDTH)
         .fontSize(14)
         .padding({ top: 8 })

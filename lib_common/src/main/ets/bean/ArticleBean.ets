@@ -232,6 +232,16 @@ export class  ArticleBean{
     return this._publishTime
   }
 
+  private _releaseTime: string = ""
+
+  public set releaseTime(value: string) {
+    this._releaseTime = value
+  }
+
+  public get releaseTime1(): string {
+    return this._releaseTime
+  }
+
   private _realSuperChapterId: number = 0
 
   public set realSuperChapterId(value: number) {
