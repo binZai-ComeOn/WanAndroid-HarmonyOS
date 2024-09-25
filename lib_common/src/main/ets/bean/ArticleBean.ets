@@ -32,13 +32,13 @@ export class  ArticleBean{
     return this._audit
   }
 
-  private _author: String = ""
+  private _author: string = ""
 
-  public set author(value: String) {
+  public set author(value: string) {
     this._author = value
   }
 
-  public get author(): String {
+  public get author(): string {
     return this._author
   }
 
@@ -62,13 +62,13 @@ export class  ArticleBean{
     return this._chapterId
   }
 
-  private _chapterName: String = ""
+  private _chapterName: string = ""
 
-  public set chapterName(value: String) {
+  public set chapterName(value: string) {
     this._chapterName = value
   }
 
-  public get chapterName(): String {
+  public get chapterName(): string {
     return this._chapterName
   }
 
@@ -272,13 +272,13 @@ export class  ArticleBean{
     return this._shareDate
   }
 
-  private _shareUser: String = ""
+  private _shareUser: string = ""
 
-  public set shareUser(value: String) {
+  public set shareUser(value: string) {
     this._shareUser = value
   }
 
-  public get shareUser(): String {
+  public get shareUser(): string {
     return this._shareUser
   }
 
@@ -292,13 +292,13 @@ export class  ArticleBean{
     return this._superChapterId
   }
 
-  private _superChapterName: String = ""
+  private _superChapterName: string = ""
 
-  public set superChapterName(value: String) {
+  public set superChapterName(value: string) {
     this._superChapterName = value
   }
 
-  public get superChapterName(): String {
+  public get superChapterName(): string {
     return this._superChapterName
   }
 
@@ -310,6 +310,16 @@ export class  ArticleBean{
 
   public get tags(): ArrayList<Tag> {
     return this._tags
+  }
+
+  private _tag: string = ""
+
+  public set tag(value: string) {
+    this._tag = value
+  }
+
+  public get tag(): string {
+    return this._tag
   }
 
   private _title: String = ""

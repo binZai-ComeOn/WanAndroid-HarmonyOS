@@ -8,6 +8,7 @@ import { BannerBean } from '@ohos/lib_common/src/main/ets/bean/BannerBean';
 import { ArticleBean } from '@ohos/lib_common/src/main/ets/bean/ArticleBean';
 import BaseResponseList from '@ohos/lib_common/src/main/ets/bean/BaseResponseList';
 import TimeUtil from '@ohos/lib_common/src/main/ets/utils/TimeUtil';
+import { Tag } from '@ohos/lib_common/src/main/ets/bean/Tag';
 
 @Preview
 @Component
@@ -39,14 +40,37 @@ export struct HomePage {
     // }))
 
     HomeViewModel.getArticles(this.page).then(((data: BaseResponseList<ArrayList<ArticleBean>>) => {
-        console.log("articles22:"+data.datas.length+","+this.articles.length)
+      console.log("articles22:" + data.datas.length + "," + this.articles.length)
+      let list: ArticleBean[] = []
       data.datas.forEach((item: ArticleBean) => {
+        if (item.author == "") {
+          item.author = item.shareUser
+        }
         item.releaseTime = TimeUtil.millisecond2Time(item.publishTime)
-        this.articles.push(item)
+        if (item.tags.length > 0) {
+          item.tags.forEach((tag: Tag, index: number) => {
+            item.tag = tag.name
+            if (item.tags.length != (index - 1)) {
+              item.tag += " / "
+            }
+          })
+        } else {
+          if (item.superChapterName != null && item.superChapterName != "" && item.chapterName != null &&
+            item.chapterName != "") {
+            item.tag = item.superChapterName + " / " + item.chapterName
+          } else if (item.superChapterName != null && item.superChapterName != "") {
+            item.tag = item.superChapterName
+          } else if (item.chapterName != null && item.chapterName != "") {
+            item.tag = item.chapterName
+          }
+        }
+        list.push(item)
       })
-      console.log("articles1:"+data.datas.length+","+this.articles.length)
-      this.articles.forEach((a: ArticleBean) => {
-        console.log(""+a.title)
+      this.articles = list
+      console.log("articles1:" + data.datas.length + "," + this.articles.length)
+      this.articles.forEach((item: ArticleBean) => {
+        console.log("测试：" + item.tags[0])
+        console.log("item：" + item.author)
       })
     }))
   }
@@ -82,14 +106,14 @@ export struct HomePage {
 
       // 遍历列表可以使用 ComposeListItem
       // ComposeListItem()
-      List({ space: 20, initialIndex: 0 }) {
-        ForEach(this.articles, (item: ArticleBean) => {
+      List({ space: 0, initialIndex: 0 }) {
+        ForEach(this.articles, (item: ArticleBean, index?: number) => {
           ListItem() {
             this.HomeListItem(item)
           }
         }, (item: string) => item)
       }
-      .scrollBar(BarState.Off)
+      .scrollBar(BarState.Auto)
     }
   }
 
@@ -137,10 +161,14 @@ export struct HomePage {
               .fontSize(10)
             Blank().width(5)
           }
-          Text(item.author.toString()).fontSize(12).fontColor($r('app.color.item_author'))
+          Text(item.author).fontSize(12).fontColor($r('app.color.item_author'))
         }.layoutWeight(1)
 
-        Text(item.releaseTime.toString()).layoutWeight(1).textAlign(TextAlign.End).fontColor($r('app.color.item_date')).fontSize(12)
+        Text(item.releaseTime.toString())
+          .layoutWeight(1)
+          .textAlign(TextAlign.End)
+          .fontColor($r('app.color.item_date'))
+          .fontSize(12)
       }
 
       Text(item.title.toString())
@@ -149,7 +177,7 @@ export struct HomePage {
         .padding({ top: 8 })
         .textAlign(TextAlign.Start)
         .fontColor($r('app.color.item_title'))
-      Text("广场Tab / 自助")
+      Text(item.tag)
         .width(Constants.FULL_WIDTH)
         .textAlign(TextAlign.Start)
         .fontSize(10)

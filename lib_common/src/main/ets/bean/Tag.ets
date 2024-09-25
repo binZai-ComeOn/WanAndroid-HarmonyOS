@@ -1,4 +1,4 @@
 export interface Tag{
-  name: String
-  url: String
+  name: string
+  url: string
 }
