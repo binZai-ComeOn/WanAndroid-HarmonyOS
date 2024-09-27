@@ -322,13 +322,13 @@ export class  ArticleBean{
     return this._tag
   }
 
-  private _title: String = ""
+  private _title: string = ""
 
-  public set title(value: String) {
+  public set title(value: string) {
     this._title = value
   }
 
-  public get title(): String {
+  public get title(): string {
     return this._title
   }
 

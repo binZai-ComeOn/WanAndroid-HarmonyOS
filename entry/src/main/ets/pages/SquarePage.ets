@@ -2,14 +2,28 @@ import { TitleBar } from '../widget/TitleBar'
 import { ParentColumn } from '../widget/ParentColumn'
 import { router } from '@kit.ArkUI'
 import { Constants } from '../common/Constants'
+import HomeViewModel from '../viewmodel/HomeViewModel'
+import BaseResponseList from '@ohos/lib_common/src/main/ets/bean/BaseResponseList'
+import { ArrayList } from '@kit.ArkTS'
+import { ArticleBean } from '@ohos/lib_common/src/main/ets/bean/ArticleBean'
+import { ArticleItem } from '../widget/ArticleItem'
 
 /**
  * 广场页
  */
+@Preview
 @Component
 export struct SquarePage {
-  aboutToAppear(): void {
+  /**
+   * Parameters for pagination
+   */
+  @State page: number = 0
+  @State articles: ArticleBean[] = [];
 
+  aboutToAppear(): void {
+    HomeViewModel.getSquareList(this.page).then(((data: BaseResponseList<ArrayList<ArticleBean>>) => {
+      this.articles = HomeViewModel.handleData(data.datas)
+    }))
   }
 
   build() {
@@ -22,33 +36,15 @@ export struct SquarePage {
           router.pushUrl({ url: "pages/ShareArticlePage" })
         }
       })
-      this.test()
+
+      List({ space: 0, initialIndex: 0 }) {
+        ForEach(this.articles, (item: ArticleBean, index?: number) => {
+          ListItem() {
+            ArticleItem({ item: item })
+          }
+        }, (item: string) => item)
+      }
+      .scrollBar(BarState.Auto)
     }
-  }
-
-  @Builder
-  test() {
-    Column() {
-      Row() {
-        Text("作者").fontSize(10).fontColor($r("app.color.item_author"))
-        Text("2024-09-22 10:00:00").fontSize(10).fontColor($r("app.color.item_date"))
-      }.width(Constants.FULL_WIDTH)
-      .justifyContent(FlexAlign.SpaceBetween)
-
-      Text("文章标题")
-        .fontSize(14)
-        .fontColor($r("app.color.item_title"))
-        .padding({
-          top: 10,
-          bottom: 10
-        })
-        .width(Constants.FULL_WIDTH)
-      Text("项目章节").fontSize(10).fontColor($r("app.color.item_chapter")).width(Constants.FULL_WIDTH)
-
-      Blank().padding({ top: 8 })
-      Blank().height(0.5).width(Constants.FULL_WIDTH).backgroundColor($r("app.color.list_divider"))
-    }.padding(8)
-    .width(Constants.FULL_WIDTH)
-    .backgroundColor($r("app.color.White"))
   }
 }

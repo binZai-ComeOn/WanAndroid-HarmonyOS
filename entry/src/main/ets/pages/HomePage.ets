@@ -9,6 +9,7 @@ import { ArticleBean } from '@ohos/lib_common/src/main/ets/bean/ArticleBean';
 import BaseResponseList from '@ohos/lib_common/src/main/ets/bean/BaseResponseList';
 import TimeUtil from '@ohos/lib_common/src/main/ets/utils/TimeUtil';
 import { Tag } from '@ohos/lib_common/src/main/ets/bean/Tag';
+import { ArticleItem } from '../widget/ArticleItem';
 
 @Preview
 @Component
@@ -30,48 +31,18 @@ export struct HomePage {
     HomeViewModel.getBanners().then(((banners: BannerBean[]) => {
       this.banners = banners
     }))
-    // HomeViewModel.getArticleTop().then(((articles: ArrayList<ArticleBean>) => {
-    //   console.log("articles22:"+articles.length+","+this.articles.length)
-    //   articles.forEach((item: ArticleBean) => {
-    //     //this.articles.add(item)
-    //   })
-    //   console.log("articles:"+articles.length+","+this.articles.length)
-    //
-    // }))
-
-    HomeViewModel.getArticles(this.page).then(((data: BaseResponseList<ArrayList<ArticleBean>>) => {
-      console.log("articles22:" + data.datas.length + "," + this.articles.length)
+    HomeViewModel.getArticleTop().then(((articles: ArrayList<ArticleBean>) => {
       let list: ArticleBean[] = []
-      data.datas.forEach((item: ArticleBean) => {
-        if (item.author == "") {
-          item.author = item.shareUser
-        }
-        item.releaseTime = TimeUtil.millisecond2Time(item.publishTime)
-        if (item.tags.length > 0) {
-          item.tags.forEach((tag: Tag, index: number) => {
-            item.tag = tag.name
-            if (item.tags.length != (index - 1)) {
-              item.tag += " / "
-            }
-          })
-        } else {
-          if (item.superChapterName != null && item.superChapterName != "" && item.chapterName != null &&
-            item.chapterName != "") {
-            item.tag = item.superChapterName + " / " + item.chapterName
-          } else if (item.superChapterName != null && item.superChapterName != "") {
-            item.tag = item.superChapterName
-          } else if (item.chapterName != null && item.chapterName != "") {
-            item.tag = item.chapterName
-          }
-        }
-        list.push(item)
-      })
+      list = HomeViewModel.handleData(articles)
       this.articles = list
-      console.log("articles1:" + data.datas.length + "," + this.articles.length)
-      this.articles.forEach((item: ArticleBean) => {
-        console.log("测试：" + item.tags[0])
-        console.log("item：" + item.author)
-      })
+
+      HomeViewModel.getArticles(this.page).then(((data: BaseResponseList<ArrayList<ArticleBean>>) => {
+        let handledata = HomeViewModel.handleData(data.datas)
+        handledata.forEach((item: ArticleBean) => {
+          list.push(item)
+        })
+        this.articles = list
+      }))
     }))
   }
 
@@ -104,87 +75,14 @@ export struct HomePage {
 
       })
 
-      // 遍历列表可以使用 ComposeListItem
-      // ComposeListItem()
       List({ space: 0, initialIndex: 0 }) {
         ForEach(this.articles, (item: ArticleBean, index?: number) => {
           ListItem() {
-            this.HomeListItem(item)
+            ArticleItem({ item: item })
           }
         }, (item: string) => item)
       }
       .scrollBar(BarState.Auto)
     }
-  }
-
-  @Builder
-  HomeListItem(item: ArticleBean) {
-    Column() {
-      Row() {
-        Row() {
-          if (item.top == "1") {
-            Text($r('app.string.topping'))
-              .fontSize(10)
-              .padding({
-                left: 4,
-                right: 4,
-                top: 2,
-                bottom: 2
-              })
-              .fontColor($r('app.color.Red'))
-              .border({ width: 0.5, radius: 2, color: $r('app.color.Red') })
-            Blank().width(5)
-          }
-          if (item.fresh) {
-            Text($r('app.string.xin'))
-              .fontSize(10)
-              .padding({
-                left: 4,
-                right: 4,
-                top: 2,
-                bottom: 2
-              })
-              .fontColor($r('app.color.Red'))
-              .border({ width: 0.5, radius: 2, color: $r('app.color.Red') })
-            Blank().width(5)
-          }
-          if (item.tags.length > 0) {
-            Text(item.tags[0].name)
-              .border({ width: 0.5, radius: 2, color: $r('app.color.colorAccent') })
-              .padding({
-                left: 4,
-                right: 4,
-                top: 2,
-                bottom: 2
-              })
-              .fontColor($r('app.color.colorAccent'))
-              .fontSize(10)
-            Blank().width(5)
-          }
-          Text(item.author).fontSize(12).fontColor($r('app.color.item_author'))
-        }.layoutWeight(1)
-
-        Text(item.releaseTime.toString())
-          .layoutWeight(1)
-          .textAlign(TextAlign.End)
-          .fontColor($r('app.color.item_date'))
-          .fontSize(12)
-      }
-
-      Text(item.title.toString())
-        .width(Constants.FULL_WIDTH)
-        .fontSize(14)
-        .padding({ top: 8 })
-        .textAlign(TextAlign.Start)
-        .fontColor($r('app.color.item_title'))
-      Text(item.tag)
-        .width(Constants.FULL_WIDTH)
-        .textAlign(TextAlign.Start)
-        .fontSize(10)
-        .padding({ top: 8 })
-        .fontColor($r('app.color.item_chapter'))
-      Blank().height(8)
-      Row().width(Constants.FULL_WIDTH).height(0.5).backgroundColor($r('app.color.list_divider'))
-    }.padding({ top: 8, bottom: 8 }).width(Constants.FULL_WIDTH)
   }
 }
