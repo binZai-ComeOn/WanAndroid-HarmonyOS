@@ -3,6 +3,7 @@ import ResponseResult from '@ohos/lib_common/src/main/ets/bean/BaseResponse';
 import BaseResponseList from '@ohos/lib_common/src/main/ets/bean/BaseResponseList';
 import { ApiInterface } from '@ohos/lib_common/src/main/ets/network/ApiInterface';
 import { BannerBean } from '@ohos/lib_common/src/main/ets/bean/BannerBean'
+import KnowledgeSystemBean from '@ohos/lib_common/src/main/ets/bean/KnowledgeSystemBean'
 import { httpRequestGet } from '@ohos/lib_common/src/main/ets/network/repository/HttpRequest';
 import { ArticleBean } from '@ohos/lib_common/src/main/ets/bean/ArticleBean';
 import { ArrayList } from '@kit.ArkTS';
@@ -66,6 +67,20 @@ export class HomeViewModel {
       httpRequestGet<BaseResponseList<ArrayList<ArticleBean>>>(ApiInterface.userArticleList.replace("{page}",
         page.toString()))
         .then((data: ResponseResult<BaseResponseList<ArrayList<ArticleBean>>>) => {
+          resolve(data.data);
+        });
+    });
+  }
+
+  /**
+   * Obtain square list data
+   * @param page Parameters for pagination
+   * @returns
+   */
+  getArticleTree(): Promise<KnowledgeSystemBean[]> {
+    return new Promise((resolve: Function) => {
+      httpRequestGet<KnowledgeSystemBean[]>(ApiInterface.articleTree)
+        .then((data: ResponseResult<KnowledgeSystemBean[]>) => {
           resolve(data.data);
         });
     });

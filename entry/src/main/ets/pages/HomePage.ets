@@ -28,22 +28,22 @@ export struct HomePage {
    * 允许在aboutToAppear函数中改变状态变量，更改将在后续执行build()函数中生效。
    */
   aboutToAppear(): void {
-    HomeViewModel.getBanners().then(((banners: BannerBean[]) => {
+    HomeViewModel.getBanners().then((banners: BannerBean[]) => {
       this.banners = banners
-    }))
-    HomeViewModel.getArticleTop().then(((articles: ArrayList<ArticleBean>) => {
+    })
+    HomeViewModel.getArticleTop().then((articles: ArrayList<ArticleBean>) => {
       let list: ArticleBean[] = []
       list = HomeViewModel.handleData(articles)
       this.articles = list
 
-      HomeViewModel.getArticles(this.page).then(((data: BaseResponseList<ArrayList<ArticleBean>>) => {
+      HomeViewModel.getArticles(this.page).then((data: BaseResponseList<ArrayList<ArticleBean>>) => {
         let handledata = HomeViewModel.handleData(data.datas)
         handledata.forEach((item: ArticleBean) => {
           list.push(item)
         })
         this.articles = list
-      }))
-    }))
+      })
+    })
   }
 
   build() {
