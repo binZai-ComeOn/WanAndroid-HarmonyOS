@@ -17,7 +17,7 @@ import { ArticleTrees } from '../widget/ArticleTrees'
 @Component
 export struct SystemPage {
   tabs: Resource[] = Constants.SYSTEM_PAGE_TABBARS;
-  articleTree: KnowledgeSystemBean[] = []
+  @State articleTree: KnowledgeSystemBean[] = []
 
   aboutToAppear(): void {
     HomeViewModel.getArticleTree().then((data: KnowledgeSystemBean[]) => {
@@ -39,7 +39,9 @@ export struct SystemPage {
       })
       TopTabBar({
         tabs: this.tabs,
-        content: this.TopTabBarContent
+        content: (tabName: Resource) => {
+          this.TopTabBarContent(tabName)
+        }
       })
     }
   }
@@ -47,24 +49,9 @@ export struct SystemPage {
   @Builder
   TopTabBarContent(tabName: Resource) {
     if (this.tabs[0] == tabName) {
-      Column() {
-        List() {
-          ForEach(this.articleTree, (item: KnowledgeSystemBean, index?: number) => {
-            ListItem() {
-              Text("测试")
-              // ArticleTrees({ item: item })
-            }
-          }, (item: string) => item)
-        }
-        .scrollBar(BarState.Auto)
-      }.height(Constants.FULL_HEIGHT)
+      ArticleTrees({ data: this.articleTree })
     } else if (this.tabs[1] == tabName) {
       NavigationPage()
     }
-  }
-
-  @Builder
-  SideTabBarContent(tabName: Resource) {
-    Text("tabName")
   }
 }
