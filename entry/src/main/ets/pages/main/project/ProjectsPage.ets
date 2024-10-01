@@ -1,7 +1,10 @@
-import { TitleBar } from '../widget/TitleBar'
+import { TitleBar } from '../../../widget/TitleBar'
 import { router } from '@kit.ArkUI'
-import { ParentColumn } from '../widget/ParentColumn'
-import { Constants } from '../common/Constants'
+import { ParentColumn } from '../../../widget/ParentColumn'
+import { Constants } from '../../../common/Constants'
+import HomeViewModel from '../../../viewmodel/HomeViewModel'
+import BaseResponseList from '@ohos/lib_common/src/main/ets/bean/BaseResponseList'
+import { ArticleBean } from '@ohos/lib_common/src/main/ets/bean/ArticleBean'
 
 /**
  * 项目页
@@ -12,8 +15,8 @@ export struct ProjectsPage {
   @State currentIndex: number = 0;
   tabs: Resource[] = [$r('app.string.system'), $r('app.string.system'), $r('app.string.system')];
 
-  aboutToAppear(): void {
 
+  aboutToAppear(): void {
   }
 
   build() {

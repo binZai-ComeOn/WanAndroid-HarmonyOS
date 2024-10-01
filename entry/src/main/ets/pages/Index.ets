@@ -2,7 +2,7 @@ import { Constants } from '../common/Constants';
 import { HomePage } from './main/home/HomePage';
 import { SquarePage } from './main/square/SquarePage';
 import { OfficialAccountPage } from './main/official_account/OfficialAccountPage';
-import { ProjectsPage } from './ProjectsPage';
+import { ProjectsPage } from './main/project/ProjectsPage';
 import { SystemPage } from './main/system/SystemPage';
 import { SideBarTitleBar } from '../widget/SideBarTitleBar';
 import { TextRowFlow } from '../widget/TextRowFlow';

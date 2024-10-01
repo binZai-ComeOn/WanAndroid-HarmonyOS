@@ -63,19 +63,19 @@ export class ApiInterface {
   static wxarticleChapters = "/wxarticle/chapters/json"
 
   /**
-   * 获取公众号列表
+   * 在某个公众号中搜索历史文章
    * https://wanandroid.com/wxarticle/list/408/1/json
    */
   static wxarticleList = "/wxarticle/list/{id}/{page}/json"
 
   /**
-   * 获取公众号列表
+   * 获取项目分类
    * https://www.wanandroid.com/project/tree/json
    */
   static projectTree = "/project/tree/json"
 
   /**
-   * 获取公众号列表
+   * 获取项目某一个分类下项目列表数据，分页展示
    * https://www.wanandroid.com/project/list/1/json?cid=294
    */
   static projectList = "/project/list/1/json"

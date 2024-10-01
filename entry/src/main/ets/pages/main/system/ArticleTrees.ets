@@ -38,8 +38,8 @@ export struct ArticleTrees {
               .id("item_desc")
               .margin({ bottom: 10, top: 30 })
 
-              Row()
-                .height(0.5)
+              Divider()
+                .strokeWidth(0.5)
                 .width(Constants.FULL_WIDTH)
                 .backgroundColor($r('app.color.list_divider'))
                 .alignRules({

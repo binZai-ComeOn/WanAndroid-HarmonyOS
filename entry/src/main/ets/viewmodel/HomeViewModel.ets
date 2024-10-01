@@ -9,6 +9,7 @@ import { ArticleBean } from '@ohos/lib_common/src/main/ets/bean/ArticleBean';
 import { ArrayList } from '@kit.ArkTS';
 import TimeUtil from '@ohos/lib_common/src/main/ets/utils/TimeUtil';
 import { Tag } from '@ohos/lib_common/src/main/ets/bean/Tag';
+import TabBean from '@ohos/lib_common/src/main/ets/bean/TabBean'
 
 @Observed
 export class HomeViewModel {
@@ -37,8 +38,8 @@ export class HomeViewModel {
     return new Promise((resolve: Function) => {
       httpRequestGet<BaseResponseList<ArrayList<ArticleBean>>>(ApiInterface.articleTop)
         .then((data: ResponseResult<BaseResponseList<ArrayList<ArticleBean>>>) => {
-        resolve(data.data);
-      });
+          resolve(data.data);
+        });
     });
   }
 
@@ -86,7 +87,35 @@ export class HomeViewModel {
     });
   }
 
+  /**
+   * Get the list of official account
+   * @returns
+   */
+  getWxarticleChapters(): Promise<TabBean[]> {
+    return new Promise((resolve: Function) => {
+      httpRequestGet<TabBean[]>(ApiInterface.wxarticleChapters)
+        .then((data: ResponseResult<TabBean[]>) => {
+          resolve(data.data);
+        });
+    });
+  }
 
+  /**
+   * Get the official account article list
+   * @id page Parameters for pagination
+   * @param page Parameters for pagination, Starting from 1
+   * @returns
+   */
+  getWxarticleList(id: number, page: number): Promise<BaseResponseList<ArrayList<ArticleBean>>> {
+    return new Promise((resolve: Function) => {
+      httpRequestGet<BaseResponseList<ArrayList<ArticleBean>>>(ApiInterface.wxarticleList
+        .replace("{id}", id.toString())
+        .replace("{page}", page.toString()))
+        .then((data: ResponseResult<BaseResponseList<ArrayList<ArticleBean>>>) => {
+          resolve(data.data);
+        });
+    });
+  }
 
 
   handleData(datas: ArrayList<ArticleBean>) {
@@ -99,7 +128,7 @@ export class HomeViewModel {
       if (item.tags.length > 0) {
         item.tags.forEach((tag: Tag, index: number) => {
           item.tag = tag.name
-          if (item.tags.length != index) {
+          if (item.tags.length < index) {
             item.tag += " / "
           }
         })
