@@ -1,6 +1,6 @@
-import { TitleBar } from '../widget/TitleBar'
+import { TitleBar } from '../../../widget/TitleBar'
 import { router } from '@kit.ArkUI'
-import { ParentColumn } from '../widget/ParentColumn'
+import { ParentColumn } from '../../../widget/ParentColumn'
 
 /**
  * 公众号页

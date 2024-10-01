@@ -1,4 +1,4 @@
-import { Constants } from '../common/Constants'
+import { Constants } from '../../../common/Constants'
 
 @Preview
 @Component

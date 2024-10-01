@@ -5,6 +5,10 @@
       "value": "module description"
     },
     {
+      "name": "wan_android",
+      "value": "Wan Android"
+    },
+    {
       "name": "EntryAbility_desc",
       "value": "description"
     },

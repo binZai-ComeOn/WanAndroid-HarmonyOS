@@ -1,15 +1,15 @@
-import { Constants } from '../common/Constants'
-import { TitleBar } from '../widget/TitleBar'
-import { ParentColumn } from '../widget/ParentColumn';
+import { Constants } from '../../../common/Constants'
+import { TitleBar } from '../../../widget/TitleBar'
+import { ParentColumn } from '../../../widget/ParentColumn';
 import { router } from '@kit.ArkUI';
-import HomeViewModel from '../viewmodel/HomeViewModel';
+import HomeViewModel from '../../../viewmodel/HomeViewModel';
 import { ArrayList } from '@kit.ArkTS';
 import { BannerBean } from '@ohos/lib_common/src/main/ets/bean/BannerBean';
 import { ArticleBean } from '@ohos/lib_common/src/main/ets/bean/ArticleBean';
 import BaseResponseList from '@ohos/lib_common/src/main/ets/bean/BaseResponseList';
 import TimeUtil from '@ohos/lib_common/src/main/ets/utils/TimeUtil';
 import { Tag } from '@ohos/lib_common/src/main/ets/bean/Tag';
-import { ArticleItem } from '../widget/ArticleItem';
+import { ArticleItem } from '../../../widget/ArticleItem';
 
 @Preview
 @Component

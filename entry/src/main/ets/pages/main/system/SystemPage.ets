@@ -1,14 +1,14 @@
-import { TitleBar } from '../widget/TitleBar'
+import { TitleBar } from '../../../widget/TitleBar'
 import { router } from '@kit.ArkUI'
-import { TopTabBar } from '../widget/TopTabBar'
-import { Constants } from '../common/Constants'
-import { NavigationPage } from './NavigationPage'
-import { ParentColumn } from '../widget/ParentColumn'
-import HomeViewModel from '../viewmodel/HomeViewModel'
+import { TopTabBar } from '../../../widget/TopTabBar'
+import { Constants } from '../../../common/Constants'
+import { NavigationPage } from '../navigation/NavigationPage'
+import { ParentColumn } from '../../../widget/ParentColumn'
+import HomeViewModel from '../../../viewmodel/HomeViewModel'
 import { ArrayList } from '@kit.ArkTS'
 import KnowledgeSystemBean from '@ohos/lib_common/src/main/ets/bean/KnowledgeSystemBean'
 import { LogUtil } from '@pura/harmony-utils'
-import { ArticleTrees } from '../widget/ArticleTrees'
+import { ArticleTrees } from './ArticleTrees'
 
 /**
  * 体系页
@@ -21,9 +21,7 @@ export struct SystemPage {
 
   aboutToAppear(): void {
     HomeViewModel.getArticleTree().then((data: KnowledgeSystemBean[]) => {
-      console.log("长度："+data.length)
       this.articleTree = data
-      console.log("长度："+this.articleTree.length)
     })
   }
 

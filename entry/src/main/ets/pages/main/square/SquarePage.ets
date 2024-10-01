@@ -1,12 +1,12 @@
-import { TitleBar } from '../widget/TitleBar'
-import { ParentColumn } from '../widget/ParentColumn'
+import { TitleBar } from '../../../widget/TitleBar'
+import { ParentColumn } from '../../../widget/ParentColumn'
 import { router } from '@kit.ArkUI'
-import { Constants } from '../common/Constants'
-import HomeViewModel from '../viewmodel/HomeViewModel'
+import { Constants } from '../../../common/Constants'
+import HomeViewModel from '../../../viewmodel/HomeViewModel'
 import BaseResponseList from '@ohos/lib_common/src/main/ets/bean/BaseResponseList'
 import { ArrayList } from '@kit.ArkTS'
 import { ArticleBean } from '@ohos/lib_common/src/main/ets/bean/ArticleBean'
-import { ArticleItem } from '../widget/ArticleItem'
+import { ArticleItem } from '../../../widget/ArticleItem'
 
 /**
  * 广场页

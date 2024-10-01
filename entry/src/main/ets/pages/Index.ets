@@ -1,9 +1,9 @@
 import { Constants } from '../common/Constants';
-import { HomePage } from './HomePage';
-import { SquarePage } from './SquarePage';
-import { OfficialAccountPage } from './OfficialAccountPage';
+import { HomePage } from './main/home/HomePage';
+import { SquarePage } from './main/square/SquarePage';
+import { OfficialAccountPage } from './main/official_account/OfficialAccountPage';
 import { ProjectsPage } from './ProjectsPage';
-import { SystemPage } from './SystemPage';
+import { SystemPage } from './main/system/SystemPage';
 import { SideBarTitleBar } from '../widget/SideBarTitleBar';
 import { TextRowFlow } from '../widget/TextRowFlow';
 
