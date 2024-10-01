@@ -117,6 +117,35 @@ export class HomeViewModel {
     });
   }
 
+  /**
+   * Get the list of projects
+   * @returns
+   */
+  getProjectTree(): Promise<TabBean[]> {
+    return new Promise((resolve: Function) => {
+      httpRequestGet<TabBean[]>(ApiInterface.projectTree)
+        .then((data: ResponseResult<TabBean[]>) => {
+          resolve(data.data);
+        });
+    });
+  }
+
+  /**
+   * Get the official account article list
+   * @id page Parameters for pagination
+   * @param page Parameters for pagination, Starting from 1
+   * @returns
+   */
+  getProjectList(page: number, cid: number): Promise<BaseResponseList<ArrayList<ArticleBean>>> {
+    return new Promise((resolve: Function) => {
+      httpRequestGet<BaseResponseList<ArrayList<ArticleBean>>>(ApiInterface.projectList
+        .replace("{page}", page.toString()) + cid)
+        .then((data: ResponseResult<BaseResponseList<ArrayList<ArticleBean>>>) => {
+          resolve(data.data);
+        });
+    });
+  }
+
 
   handleData(datas: ArrayList<ArticleBean>) {
     let list: ArticleBean[] = []

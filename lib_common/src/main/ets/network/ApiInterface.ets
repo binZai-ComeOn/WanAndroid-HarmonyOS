@@ -78,7 +78,7 @@ export class ApiInterface {
    * 获取项目某一个分类下项目列表数据，分页展示
    * https://www.wanandroid.com/project/list/1/json?cid=294
    */
-  static projectList = "/project/list/1/json"
+  static projectList = "/project/list/{page}/json?cid="
 
   /**
    * 登录

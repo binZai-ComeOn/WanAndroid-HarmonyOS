@@ -92,13 +92,13 @@ export class  ArticleBean{
     return this._courseId
   }
 
-  private _desc: String = ""
+  private _desc: string = ""
 
-  public set desc(value: String) {
+  public set desc(value: string) {
     this._desc = value
   }
 
-  public get desc(): String {
+  public get desc(): string {
     return this._desc
   }
 
@@ -112,13 +112,13 @@ export class  ArticleBean{
     return this._descMd
   }
 
-  private _envelopePic: String = ""
+  private _envelopePic: string = ""
 
-  public set envelopePic(value: String) {
+  public set envelopePic(value: string) {
     this._envelopePic = value
   }
 
-  public get envelopePic(): String {
+  public get envelopePic(): string {
     return this._envelopePic
   }
 

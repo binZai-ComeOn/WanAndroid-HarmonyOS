@@ -52,6 +52,10 @@ export class Constants {
    */
   static readonly FULL_HEIGHT: string = '100%';
   /**
+   * Tab height.
+   */
+  static readonly TAB_HEIGHT: number = 56;
+  /**
    * Font size of unchecked title.
    */
   static readonly FONT_SIZE_UNCHECKED = 18;

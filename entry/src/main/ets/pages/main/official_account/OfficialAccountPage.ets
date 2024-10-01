@@ -49,14 +49,14 @@ export struct OfficialAccountPage {
       Tabs({ barPosition: BarPosition.Start, index: this.currentIndex, controller: this.controller }) {
         ForEach(this.tabs, (tab: TabBean) => {
           TabContent() {
-            this.TabPage()
+            this.OfficialAccountTabPage()
           }.tabBar(SubTabBarStyle.of(tab.name))
         })
       }
       .vertical(false)
       .barMode(BarMode.Scrollable, { nonScrollableLayoutStyle: LayoutStyle.SPACE_BETWEEN_OR_CENTER })
       .scrollable(true)
-      .barHeight(56)
+      .barHeight(Constants.TAB_HEIGHT)
       .animationDuration(400)
       .onChange((index: number) => {
         this.currentIndex = index
@@ -67,7 +67,7 @@ export struct OfficialAccountPage {
   }
 
   @Builder
-  TabPage() {
+  OfficialAccountTabPage() {
     Column() {
       List() {
         ForEach(this.articles, (item: ArticleBean) => {
