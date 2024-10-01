@@ -7,6 +7,7 @@ import BaseResponseList from '@ohos/lib_common/src/main/ets/bean/BaseResponseLis
 import { ArticleBean } from '@ohos/lib_common/src/main/ets/bean/ArticleBean'
 import TabBean from '@ohos/lib_common/src/main/ets/bean/TabBean'
 import { ArrayList } from '@kit.ArkTS'
+import AppUtils from '@ohos/lib_common/src/main/ets/utils/AppUtils'
 
 /**
  * 项目页
@@ -29,7 +30,7 @@ export struct ProjectsPage {
 
   getProjectList(page: number, cid: number) {
     HomeViewModel.getProjectList(page, cid).then((data: BaseResponseList<ArrayList<ArticleBean>>) => {
-      let list = HomeViewModel.handleData(data.datas)
+      let list = AppUtils.processingArticleData(data.datas)
       this.projects = list
     })
   }
@@ -55,7 +56,7 @@ export struct ProjectsPage {
       .animationDuration(400)
       .onChange((index: number) => {
         this.currentIndex = index
-        this.getProjectList(this.tabs[index].id, 1)
+        this.getProjectList(1, this.tabs[index].id)
       })
     }
   }

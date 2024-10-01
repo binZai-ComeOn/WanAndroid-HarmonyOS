@@ -8,6 +8,7 @@ import TabBean from '@ohos/lib_common/src/main/ets/bean/TabBean'
 import { Constants } from '../../../common/Constants'
 import { ArticleItem } from '../../../widget/ArticleItem'
 import { ArrayList } from '@kit.ArkTS'
+import AppUtils from '@ohos/lib_common/src/main/ets/utils/AppUtils'
 
 /**
  * 公众号页
@@ -31,7 +32,7 @@ export struct OfficialAccountPage {
 
   getWxarticleList(id: number, page: number) {
     HomeViewModel.getWxarticleList(id, page).then((data: BaseResponseList<ArrayList<ArticleBean>>) => {
-      let list = HomeViewModel.handleData(data.datas)
+      let list = AppUtils.processingArticleData(data.datas)
       this.articles = list
     })
   }

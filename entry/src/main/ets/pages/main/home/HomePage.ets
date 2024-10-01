@@ -10,6 +10,7 @@ import BaseResponseList from '@ohos/lib_common/src/main/ets/bean/BaseResponseLis
 import TimeUtil from '@ohos/lib_common/src/main/ets/utils/TimeUtil';
 import { Tag } from '@ohos/lib_common/src/main/ets/bean/Tag';
 import { ArticleItem } from '../../../widget/ArticleItem';
+import AppUtils from '@ohos/lib_common/src/main/ets/utils/AppUtils';
 
 @Preview
 @Component
@@ -33,11 +34,11 @@ export struct HomePage {
     })
     HomeViewModel.getArticleTop().then((articles: ArrayList<ArticleBean>) => {
       let list: ArticleBean[] = []
-      list = HomeViewModel.handleData(articles)
+      list = AppUtils.processingArticleData(articles)
       this.articles = list
 
       HomeViewModel.getArticles(this.page).then((data: BaseResponseList<ArrayList<ArticleBean>>) => {
-        let handledata = HomeViewModel.handleData(data.datas)
+        let handledata = AppUtils.processingArticleData(data.datas)
         handledata.forEach((item: ArticleBean) => {
           list.push(item)
         })

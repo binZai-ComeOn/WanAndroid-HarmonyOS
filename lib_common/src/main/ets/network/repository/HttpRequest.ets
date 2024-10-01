@@ -20,7 +20,7 @@ export function httpRequestGet<T>(url: string) {
  * @param newsData Additional data of the request
  * @returns
  */
-export function httpRequestPost<T>(url: string, params: Object) {
+export function httpRequestPost<T>(url: string, params: string | Object | ArrayBuffer) {
   return httpRequest<T>(url, http.RequestMethod.POST, params);
 }
 
@@ -32,7 +32,7 @@ export function httpRequestPost<T>(url: string, params: Object) {
  * @param extraData Additional data of the request.
  * @returns Returns {@link ResponseResult}.
  */
-function httpRequest<T>(url: string, method: http.RequestMethod, params?: Object): Promise<BaseResponse<T>> {
+function httpRequest<T>(url: string, method: http.RequestMethod, params?: string | Object | ArrayBuffer): Promise<BaseResponse<T>> {
   let httpRequest = http.createHttp();
   let responseResult = httpRequest.request(ApiInterface.baseUrl + url, {
     method: method,

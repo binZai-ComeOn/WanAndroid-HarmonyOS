@@ -7,6 +7,7 @@ import BaseResponseList from '@ohos/lib_common/src/main/ets/bean/BaseResponseLis
 import { ArrayList } from '@kit.ArkTS'
 import { ArticleBean } from '@ohos/lib_common/src/main/ets/bean/ArticleBean'
 import { ArticleItem } from '../../../widget/ArticleItem'
+import AppUtils from '@ohos/lib_common/src/main/ets/utils/AppUtils'
 
 /**
  * 广场页
@@ -22,7 +23,7 @@ export struct SquarePage {
 
   aboutToAppear(): void {
     HomeViewModel.getSquareList(this.page).then(((data: BaseResponseList<ArrayList<ArticleBean>>) => {
-      this.articles = HomeViewModel.handleData(data.datas)
+      this.articles = AppUtils.processingArticleData(data.datas)
     }))
   }
 
