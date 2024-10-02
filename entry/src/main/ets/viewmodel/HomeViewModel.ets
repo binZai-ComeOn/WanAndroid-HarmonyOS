@@ -7,8 +7,6 @@ import KnowledgeSystemBean from '@ohos/lib_common/src/main/ets/bean/KnowledgeSys
 import { httpRequestGet } from '@ohos/lib_common/src/main/ets/network/repository/HttpRequest';
 import { ArticleBean } from '@ohos/lib_common/src/main/ets/bean/ArticleBean';
 import { ArrayList } from '@kit.ArkTS';
-import TimeUtil from '@ohos/lib_common/src/main/ets/utils/TimeUtil';
-import { Tag } from '@ohos/lib_common/src/main/ets/bean/Tag';
 import TabBean from '@ohos/lib_common/src/main/ets/bean/TabBean'
 
 @Observed

@@ -2,6 +2,10 @@ import { Constants } from '../common/Constants'
 import { ParentColumn } from '../widget/ParentColumn'
 import { TitleBar } from '../widget/TitleBar'
 import { router } from '@kit.ArkUI'
+import PointDetailViewModel from '../viewmodel/PointDetailViewModel'
+import { ArrayList } from '@kit.ArkTS'
+import ScoreBean from '@ohos/lib_common/src/main/ets/bean/ScoreBean'
+import BaseResponseList from '@ohos/lib_common/src/main/ets/bean/BaseResponseList'
 
 /**
  * 我的积分明细页
@@ -9,9 +13,12 @@ import { router } from '@kit.ArkUI'
 @Entry
 @Component
 export struct PointDetailPage {
+  @State scores: ScoreBean[] = []
 
   aboutToAppear(): void {
-
+    PointDetailViewModel.getUserScoreList().then((data: BaseResponseList<ArrayList<ScoreBean>>) => {
+      this.scores = data.datas.convertToArray()
+    })
   }
 
   build() {
@@ -27,13 +34,19 @@ export struct PointDetailPage {
 
         }
       })
-      this.PointItem()
+      List() {
+        ForEach(this.scores, (item: ScoreBean) => {
+          ListItem() {
+            this.PointItem(item)
+          }
+        })
+      }
     }.width(Constants.FULL_WIDTH).height(Constants.FULL_HEIGHT)
     .padding({ left: Constants.PAGE_MARGIN_LEFT, right: Constants.PAGE_MARGIN_RIGHT })
   }
 
   @Builder
-  PointItem() {
+  PointItem(bean: ScoreBean) {
     Column({ space: 10 }) {
       Row() {
         Column({ space: 5 }) {
@@ -52,5 +65,4 @@ export struct PointDetailPage {
       Divider()
     }
   }
-
 }

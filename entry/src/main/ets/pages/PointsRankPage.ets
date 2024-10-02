@@ -5,13 +5,20 @@ import { TitleBar } from '../widget/TitleBar'
 import { router } from '@kit.ArkUI'
 import { Constants } from '../common/Constants'
 import { ParentColumn } from '../widget/ParentColumn'
+import PointsRankViewModel from '../viewmodel/PointsRankViewModel'
+import BaseResponseList from '@ohos/lib_common/src/main/ets/bean/BaseResponseList'
+import { ArrayList } from '@kit.ArkTS'
+import RankingListBean from '@ohos/lib_common/src/main/ets/bean/RankingListBean'
 
 @Entry
 @Component
 export struct PointsRankPage {
+  @State rankingList: RankingListBean[] = []
 
   aboutToAppear(): void {
-
+    PointsRankViewModel.getRankingListBean().then((data: BaseResponseList<ArrayList<RankingListBean>>) => {
+      this.rankingList = data.datas.convertToArray()
+    })
   }
 
   build() {
