@@ -22,7 +22,6 @@ export struct OfficialAccountPage {
 
   aboutToAppear(): void {
     HomeViewModel.getWxarticleChapters().then((tabs: TabBean[]) => {
-      console.log("日志-" + tabs.length)
       if (tabs.length > 0) {
         this.tabs = tabs
         this.getWxarticleList(tabs[0].id, 1)

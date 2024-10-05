@@ -21,10 +21,8 @@ export struct SearchResultPage {
 
   aboutToAppear(): void {
     SearchViewModel.queryArticle(this.getParams(), this.page).then((data: BaseResponseList<ArrayList<ArticleBean>>) => {
-      console.log("111---"+data.datas.length)
       let list = AppUtils.processingArticleData(data.datas)
       this.articles = list
-      console.log("111---"+this.articles.length)
     })
   }
 
