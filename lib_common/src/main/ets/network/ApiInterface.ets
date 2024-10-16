@@ -86,7 +86,7 @@ export class ApiInterface {
    * @param username
    * @param password
    */
-  static login = "/user/login"
+  static login = "/user/login?username={username}&password={password}"
 
   /**
    * 注册

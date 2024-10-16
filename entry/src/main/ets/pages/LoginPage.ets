@@ -1,6 +1,7 @@
 import { Constants } from '../common/Constants'
 import { TitleBar } from '../widget/TitleBar'
 import { router } from '@kit.ArkUI'
+import LoginViewModel from '../viewmodel/LoginViewModel'
 
 /**
  * 登录页面
@@ -91,6 +92,7 @@ export struct LoginPage {
       .width(Constants.FULL_WIDTH)
       .onClick(() => {
         console.log('ButtonType.Normal')
+        //LoginViewModel.login("12345678","12345678")
       })
     Blank().height(6)
     Text($r('app.string.no_account'))
