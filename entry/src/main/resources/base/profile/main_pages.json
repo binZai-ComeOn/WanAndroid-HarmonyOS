@@ -8,6 +8,7 @@
     "pages/ShareArticlePage",
     "pages/PointDetailPage",
     "pages/SearchResultPage",
-    "pages/LoginPage"
+    "pages/LoginPage",
+    "pages/MyCollectPage"
   ]
 }

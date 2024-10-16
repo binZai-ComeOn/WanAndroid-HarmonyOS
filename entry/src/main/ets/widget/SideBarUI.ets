@@ -42,7 +42,7 @@ export struct SideBarUI {
             if (index == 0) {
               router.pushUrl({ url: "pages/PointDetailPage" })
             } else if (index == 1) {
-
+              router.pushUrl({ url: "pages/MyCollectPage" })
             } else if (index == 2) {
               router.pushUrl({ url: "pages/MySharedPage" })
             } else if (index == 3) {
