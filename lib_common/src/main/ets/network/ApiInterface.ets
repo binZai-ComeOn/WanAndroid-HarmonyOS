@@ -95,7 +95,7 @@ export class ApiInterface {
    * @param password
    * @param repassword
    */
-  static register = "/user/register"
+  static register = "/user/register?username={username}&password={password}&repassword={repassword}"
 
   /**
    * 获取个人积分，需要登录后访问

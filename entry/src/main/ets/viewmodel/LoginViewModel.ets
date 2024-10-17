@@ -16,6 +16,18 @@ export class LoginViewModel {
         });
     });
   }
+
+  register(username: String, password1: String, password2: String): Promise<BaseResponse<LoginBean>> {
+    return new Promise((resolve: Function) => {
+      httpRequestPost<BaseResponse<LoginBean>>(ApiInterface.register
+        .replace("{username}", username.toString())
+        .replace("{password}", password1.toString())
+        .replace("{repassword}", password2.toString()), "")
+        .then((data: ResponseResult<BaseResponse<LoginBean>>) => {
+          resolve(data);
+        });
+    });
+  }
 }
 
 
