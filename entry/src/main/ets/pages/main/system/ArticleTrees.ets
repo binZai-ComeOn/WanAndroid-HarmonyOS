@@ -1,5 +1,7 @@
 import KnowledgeSystemBean from '@ohos/lib_common/src/main/ets/bean/KnowledgeSystemBean'
 import { Constants } from '../../../common/Constants'
+import { router } from '@kit.ArkUI'
+import { RouterParams } from '../../../bean/RouterParams'
 
 @Preview
 @Component
@@ -50,9 +52,17 @@ export struct ArticleTrees {
                 .id("list_divider")
                 .margin({ top: 10 })
             }.backgroundColor($r('app.color.viewBackground')).height(70)
+            .onClick(() => {
+              router.pushUrl({ url: "pages/main/system/ArticleTreesDetail", params: new RouterParams(bean) })
+            })
           }
         }, (item: string) => item)
       }.scrollBar(BarState.Auto)
     }
+  }
+
+  getParams() : KnowledgeSystemBean[] {
+    const title = router.getParams() as RouterParams<KnowledgeSystemBean[]>
+    return title.data
   }
 }

@@ -153,6 +153,22 @@ export class HomeViewModel {
         });
     });
   }
+
+  /**
+   * Get a list of articles
+   * @param page Parameters for pagination
+   * @returns
+   */
+  getKnowledgeList(page: number, cid: number): Promise<BaseResponseList<ArrayList<ArticleBean>>> {
+    return new Promise((resolve: Function) => {
+      httpRequestGet<BaseResponseList<ArrayList<ArticleBean>>>(ApiInterface.articleList
+        .replace("{page}", page.toString())
+        .replace("{cid}", cid.toString()))
+        .then((data: ResponseResult<BaseResponseList<ArrayList<ArticleBean>>>) => {
+          resolve(data.data);
+        });
+    });
+  }
 }
 
 let homeViewModel = new HomeViewModel();

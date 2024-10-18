@@ -16,13 +16,18 @@ import { ArticleTrees } from './ArticleTrees'
 @Preview
 @Component
 export struct SystemPage {
-  tabs: Resource[] = Constants.SYSTEM_PAGE_TABBARS;
+  tabs: string[] = [];
   @State articleTree: KnowledgeSystemBean[] = []
 
   aboutToAppear(): void {
     HomeViewModel.getArticleTree().then((data: KnowledgeSystemBean[]) => {
       this.articleTree = data
     })
+    let manager = getContext().resourceManager
+    let tabList = Constants.SYSTEM_PAGE_TABBARS
+    for (let i = 0; i < tabList.length; i++) {
+      this.tabs.push(manager.getStringSync(tabList[i].id))
+    }
   }
 
   build() {
@@ -37,7 +42,7 @@ export struct SystemPage {
       })
       TopTabBar({
         tabs: this.tabs,
-        content: (tabName: Resource) => {
+        content: (tabName: string) => {
           this.TopTabBarContent(tabName)
         }
       })
@@ -45,7 +50,7 @@ export struct SystemPage {
   }
 
   @Builder
-  TopTabBarContent(tabName: Resource) {
+  TopTabBarContent(tabName: string) {
     if (this.tabs[0] == tabName) {
       ArticleTrees({ data: this.articleTree })
     } else if (this.tabs[1] == tabName) {

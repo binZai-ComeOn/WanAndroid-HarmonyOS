@@ -16,7 +16,6 @@ export struct ArticleDetailsPage {
 
   aboutToAppear(): void {
     this.data = this.getParams()
-    console.log("测试："+this.data.link)
   }
 
   build() {

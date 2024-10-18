@@ -10,6 +10,7 @@
     "pages/SearchResultPage",
     "pages/LoginPage",
     "pages/MyCollectPage",
-    "pages/ArticleDetailsPage"
+    "pages/ArticleDetailsPage",
+    "pages/main/system/ArticleTreesDetail"
   ]
 }

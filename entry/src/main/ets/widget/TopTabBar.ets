@@ -17,14 +17,14 @@ import { Constants } from '../common/Constants';
 @Preview
 @Component
 export struct TopTabBar {
-  tabs: Resource[] = Array();
+  tabs: string[] = Array();
   @State currentIndex: number = 0;
   @BuilderParam
-  content: ((tabName: Resource) => void) = this.doNothingBuilder;
+  content: ((tabName: string) => void) = this.doNothingBuilder;
 
   build() {
     Tabs({ barPosition: BarPosition.Start }) {
-      ForEach(this.tabs, (tabName: Resource, index: number) => {
+      ForEach(this.tabs, (tabName: string, index: number) => {
         TabContent() {
           Column() {
             this.content(tabName)
@@ -56,5 +56,5 @@ export struct TopTabBar {
   }
 
   @Builder
-  private doNothingBuilder(tabName: Resource) {};
+  private doNothingBuilder(tabName: string) {};
 }

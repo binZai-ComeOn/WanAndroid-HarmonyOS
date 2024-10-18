@@ -54,6 +54,14 @@ export class ApiInterface {
    * @param page
    * @param cid
    */
+  static knowledgeList = "/article/list/{page}/json?cid={cid}"
+
+  /**
+   * 获取文章列表
+   * https://www.wanandroid.com/article/list/0/json
+   * @param page
+   * @param cid
+   */
   static articleList = "/article/list/{page}/json"
 
   /**
