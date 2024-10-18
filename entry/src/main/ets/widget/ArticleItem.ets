@@ -4,6 +4,7 @@ import { Constants } from '../common/Constants'
 @Component
 export struct ArticleItem {
   item: ArticleBean = new ArticleBean()
+  clickEnvent?: (event: ClickEvent) => void
 
   build() {
     Column() {
@@ -72,6 +73,8 @@ export struct ArticleItem {
         .fontColor($r('app.color.item_chapter'))
       Blank().height(8)
       Row().width(Constants.FULL_WIDTH).height(0.5).backgroundColor($r('app.color.list_divider'))
-    }.padding({ top: 8, bottom: 8 }).width(Constants.FULL_WIDTH)
+    }.padding({ top: 8, bottom: 8 }).width(Constants.FULL_WIDTH).onClick((event: ClickEvent) => {
+      this.clickEnvent?.(event)
+    })
   }
 }

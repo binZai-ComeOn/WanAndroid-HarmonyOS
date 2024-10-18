@@ -9,6 +9,7 @@
     "pages/PointDetailPage",
     "pages/SearchResultPage",
     "pages/LoginPage",
-    "pages/MyCollectPage"
+    "pages/MyCollectPage",
+    "pages/ArticleDetailsPage"
   ]
 }

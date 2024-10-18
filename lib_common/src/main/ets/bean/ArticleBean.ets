@@ -12,13 +12,13 @@ export class  ArticleBean{
     return this._adminAdd
   }
 
-  private _apkLink: String = ""
+  private _apkLink: string = ""
 
-  public set apkLink(value: String) {
+  public set apkLink(value: string) {
     this._apkLink = value
   }
 
-  public get apkLink(): String {
+  public get apkLink(): string {
     return this._apkLink
   }
 
@@ -162,13 +162,13 @@ export class  ArticleBean{
     return this._isAdminAdd
   }
 
-  private _link: String = ""
+  private _link: string = ""
 
-  public set link(value: String) {
+  public set link(value: string) {
     this._link = value
   }
 
-  public get link(): String {
+  public get link(): string {
     return this._link
   }
 

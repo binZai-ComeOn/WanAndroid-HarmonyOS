@@ -11,6 +11,7 @@ import TimeUtil from '@ohos/lib_common/src/main/ets/utils/TimeUtil';
 import { Tag } from '@ohos/lib_common/src/main/ets/bean/Tag';
 import { ArticleItem } from '../../../widget/ArticleItem';
 import AppUtils from '@ohos/lib_common/src/main/ets/utils/AppUtils';
+import { RouterParams } from '../../../bean/RouterParams';
 
 @Preview
 @Component
@@ -79,7 +80,11 @@ export struct HomePage {
       List({ space: 0, initialIndex: 0 }) {
         ForEach(this.articles, (item: ArticleBean, index?: number) => {
           ListItem() {
-            ArticleItem({ item: item })
+            ArticleItem({
+              item: item, clickEnvent: (event: ClickEvent) => {
+                router.pushUrl({ url: "pages/ArticleDetailsPage", params: new RouterParams(item) })
+              }
+            })
           }
         }, (item: string) => item)
       }

@@ -35,6 +35,8 @@ export struct TitleBar {
       }
       if (!this.isEdit) {
         Text(this.title).fontSize($r('app.integer.title_font_size')).fontColor($r('app.color.title_font_color'))
+          .maxLines(1)
+          .textOverflow({ overflow: TextOverflow.Ellipsis })
       } else {
         TextInput({
           text: this.editText,

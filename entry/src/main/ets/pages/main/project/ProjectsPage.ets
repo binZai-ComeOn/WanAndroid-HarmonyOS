@@ -8,6 +8,7 @@ import { ArticleBean } from '@ohos/lib_common/src/main/ets/bean/ArticleBean'
 import TabBean from '@ohos/lib_common/src/main/ets/bean/TabBean'
 import { ArrayList } from '@kit.ArkTS'
 import AppUtils from '@ohos/lib_common/src/main/ets/utils/AppUtils'
+import { RouterParams } from '../../../bean/RouterParams'
 
 /**
  * 项目页
@@ -117,7 +118,7 @@ export struct ProjectsPage {
       Text(bean.releaseTime).fontSize(12).fontColor($r("app.color.item_date"))
         .alignRules({
           right: { anchor: "__container__", align: HorizontalAlign.End },
-          bottom: { anchor: "item_author", align: VerticalAlign.Bottom}
+          bottom: { anchor: "item_author", align: VerticalAlign.Bottom }
         }).id("item_date")
       Divider()
         .strokeWidth(0.5)
@@ -128,9 +129,12 @@ export struct ProjectsPage {
           top: { anchor: "image", align: VerticalAlign.Bottom },
           left: { anchor: "__container__", align: HorizontalAlign.Start },
           right: { anchor: "__container__", align: HorizontalAlign.End },
-        }).id("divider")
+        })
+        .id("divider")
 
     }.width(Constants.FULL_WIDTH)
-    .height(200)
+    .height(200).onClick(() => {
+      router.pushUrl({ url: "pages/ArticleDetailsPage", params: new RouterParams(bean) })
+    })
   }
 }

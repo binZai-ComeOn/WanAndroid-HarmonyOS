@@ -8,6 +8,7 @@ import { ArrayList } from '@kit.ArkTS'
 import { ArticleBean } from '@ohos/lib_common/src/main/ets/bean/ArticleBean'
 import { ArticleItem } from '../../../widget/ArticleItem'
 import AppUtils from '@ohos/lib_common/src/main/ets/utils/AppUtils'
+import { RouterParams } from '../../../bean/RouterParams'
 
 /**
  * 广场页
@@ -41,7 +42,9 @@ export struct SquarePage {
       List({ space: 0, initialIndex: 0 }) {
         ForEach(this.articles, (item: ArticleBean, index?: number) => {
           ListItem() {
-            ArticleItem({ item: item })
+            ArticleItem({ item: item, clickEnvent: (event: ClickEvent) => {
+              router.pushUrl({ url: "pages/ArticleDetailsPage", params: new RouterParams(item) })
+            } })
           }
         }, (item: string) => item)
       }

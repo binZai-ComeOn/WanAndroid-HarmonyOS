@@ -1,6 +1,6 @@
 // 该示例主要演示EditableTitleBar设置左侧图标、主标题及自定义右侧图标区的效果。
 import { EditableLeftIconType, EditableTitleBar, promptAction, router } from '@kit.ArkUI';
-import { SearchParams } from '../bean/SearchParams';
+import { RouterParams } from '../bean/RouterParams';
 import { Constants } from '../common/Constants';
 import { TitleBar } from '../widget/TitleBar';
 
@@ -26,7 +26,7 @@ struct SearchPage {
         },
         rightImg: $r('app.media.ic_search'),
         onRightImgClick: () => {
-          router.pushUrl({ url: "pages/SearchResultPage", params: new SearchParams(this.searchText) })
+          router.pushUrl({ url: "pages/SearchResultPage", params: new RouterParams(this.searchText) })
         }
       })
       Text($r('app.string.hot_search')).width(Constants.FULL_WIDTH)

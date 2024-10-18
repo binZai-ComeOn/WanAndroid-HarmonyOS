@@ -9,6 +9,7 @@ import { Constants } from '../../../common/Constants'
 import { ArticleItem } from '../../../widget/ArticleItem'
 import { ArrayList } from '@kit.ArkTS'
 import AppUtils from '@ohos/lib_common/src/main/ets/utils/AppUtils'
+import { RouterParams } from '../../../bean/RouterParams'
 
 /**
  * 公众号页
@@ -72,7 +73,9 @@ export struct OfficialAccountPage {
       List() {
         ForEach(this.articles, (item: ArticleBean) => {
           ListItem() {
-            ArticleItem({ item: item })
+            ArticleItem({ item: item, clickEnvent: (event: ClickEvent) => {
+              router.pushUrl({ url: "pages/ArticleDetailsPage", params: new RouterParams(item) })
+            } })
           }
         })
       }

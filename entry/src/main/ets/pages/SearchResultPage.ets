@@ -1,6 +1,6 @@
 import { router } from '@kit.ArkUI'
 import BaseResponseList from '@ohos/lib_common/src/main/ets/bean/BaseResponseList'
-import { SearchParams } from '../bean/SearchParams'
+import { RouterParams } from '../bean/RouterParams'
 import { Constants } from '../common/Constants'
 import { TitleBar } from '../widget/TitleBar'
 import { ArrayList } from '@kit.ArkTS'
@@ -38,7 +38,9 @@ export struct SearchResultPage {
       List(){
         ForEach(this.articles, (item: ArticleBean) => {
           ListItem() {
-            ArticleItem({ item: item})
+            ArticleItem({ item: item, clickEnvent: (event: ClickEvent) => {
+              router.pushUrl({ url: "pages/ArticleDetailsPage", params: new RouterParams(item) })
+            }})
           }
         })
       }
@@ -47,7 +49,7 @@ export struct SearchResultPage {
   }
 
   getParams() {
-    const title = router.getParams() as SearchParams
+    const title = router.getParams() as RouterParams<string>
     return title.data
   }
 }
