@@ -6,6 +6,7 @@ import { BannerBean } from '@ohos/lib_common/src/main/ets/bean/BannerBean'
 import KnowledgeSystemBean from '@ohos/lib_common/src/main/ets/bean/KnowledgeSystemBean'
 import { httpRequestGet } from '@ohos/lib_common/src/main/ets/network/repository/HttpRequest';
 import { ArticleBean } from '@ohos/lib_common/src/main/ets/bean/ArticleBean';
+import { NavigationBean } from '@ohos/lib_common/src/main/ets/bean/NavigationBean';
 import { ArrayList } from '@kit.ArkTS';
 import TabBean from '@ohos/lib_common/src/main/ets/bean/TabBean'
 
@@ -139,6 +140,15 @@ export class HomeViewModel {
       httpRequestGet<BaseResponseList<ArrayList<ArticleBean>>>(ApiInterface.projectList
         .replace("{page}", page.toString()) + cid)
         .then((data: ResponseResult<BaseResponseList<ArrayList<ArticleBean>>>) => {
+          resolve(data.data);
+        });
+    });
+  }
+
+  getNaviJson(): Promise<NavigationBean[]> {
+    return new Promise((resolve: Function) => {
+      httpRequestGet<ResponseResult<NavigationBean[]>>(ApiInterface.navi)
+        .then((data: ResponseResult<ResponseResult<NavigationBean[]>>) => {
           resolve(data.data);
         });
     });
