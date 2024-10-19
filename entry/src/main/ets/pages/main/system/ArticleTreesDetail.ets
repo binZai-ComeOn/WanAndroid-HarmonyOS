@@ -49,7 +49,7 @@ export struct ArticleTreesDetail {
           }
         }, (item: string) => item)
       }.scrollBar(BarState.Auto)
-    }
+    }.padding({ left: Constants.PAGE_MARGIN_LEFT, right: Constants.PAGE_MARGIN_RIGHT })
   }
 
   @Builder
