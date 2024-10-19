@@ -16,11 +16,13 @@ import { ArticleItem } from '../widget/ArticleItem'
 @Component
 export struct SearchResultPage {
   title: string = ""
-  @State page: number = 1;
+  @State page: number = 0;
   @State articles: ArticleBean[] = []
 
   aboutToAppear(): void {
+    console.log("搜索到的结果111："+this.getParams())
     SearchViewModel.queryArticle(this.getParams(), this.page).then((data: BaseResponseList<ArrayList<ArticleBean>>) => {
+      console.log("搜索到的结果："+data.datas.length)
       let list = AppUtils.processingArticleData(data.datas)
       this.articles = list
     })
@@ -48,7 +50,7 @@ export struct SearchResultPage {
     .padding({ left: Constants.PAGE_MARGIN_LEFT, right: Constants.PAGE_MARGIN_RIGHT })
   }
 
-  getParams() {
+  getParams() : string{
     const title = router.getParams() as RouterParams<string>
     return title.data
   }

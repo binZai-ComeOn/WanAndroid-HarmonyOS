@@ -20,7 +20,7 @@ export function httpRequestGet<T>(url: string) {
  * @param newsData Additional data of the request
  * @returns
  */
-export function httpRequestPost<T>(url: string, params: string | Object | ArrayBuffer) {
+export function httpRequestPost<T>(url: string, params?: string | Object | ArrayBuffer) {
   return httpRequest<T>(url, http.RequestMethod.POST, params);
 }
 
@@ -37,14 +37,9 @@ function httpRequest<T>(url: string, method: http.RequestMethod, params?: string
   let responseResult = httpRequest.request(ApiInterface.baseUrl + url, {
     method: method,
     readTimeout: HttpConstants.HTTP_READ_TIMEOUT,
-    header: {
-      'Content-Type': HttpContentType.JSON
-    },
+    header: { 'Content-Type': HttpContentType.JSON },
     connectTimeout: HttpConstants.HTTP_READ_TIMEOUT,
-    extraData: {
-      "username": "12345678",
-      "password": "12345678",
-    }
+    extraData: params
   });
   let serverData = new BaseResponse<T>();
   // Processes the data and returns.

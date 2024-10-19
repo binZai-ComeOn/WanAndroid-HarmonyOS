@@ -13,7 +13,7 @@ export class SearchViewModel {
   queryArticle(keyWord: string, page: number): Promise<BaseResponseList<ArrayList<ArticleBean>>> {
     return new Promise((resolve: Function) => {
       httpRequestPost<BaseResponseList<ArrayList<ArticleBean>>>(ApiInterface.articleQuery
-        .replace("{page}", page.toString())+`?k=${keyWord}`, "")
+        .replace("{page}", page.toString())+`?k=${keyWord}`)
         .then((data: ResponseResult<BaseResponseList<ArrayList<ArticleBean>>>) => {
           resolve(data.data);
         });
