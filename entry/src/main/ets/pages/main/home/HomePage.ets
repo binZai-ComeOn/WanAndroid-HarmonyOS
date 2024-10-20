@@ -60,7 +60,12 @@ export struct HomePage {
       })
       Swiper(this.swiperController) {
         ForEach(this.banners, (item: BannerBean, index: number) => {
-          Image(item.imagePath).borderRadius($r('app.integer.image_borderRadius'))
+          Image(item.imagePath).borderRadius($r('app.integer.image_borderRadius')).onClick(() => {
+            let bean = new ArticleBean()
+            bean.link = item.url
+            bean.title = item.title
+            router.pushUrl({ url: "pages/ArticleDetailsPage", params: new RouterParams(bean) })
+          })
         }, (item: BannerBean) => JSON.stringify(item))
       }
       .width(Constants.FULL_WIDTH)

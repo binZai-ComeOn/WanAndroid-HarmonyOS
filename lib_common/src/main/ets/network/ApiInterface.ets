@@ -130,7 +130,7 @@ export class ApiInterface {
    * @param title
    * @param link
    */
-  static addArticle =  "/lg/user_article/add/json"
+  static addArticle =  "/lg/user_article/add/json?title={title}&link={link}"
 
   /**
    * 首页banner

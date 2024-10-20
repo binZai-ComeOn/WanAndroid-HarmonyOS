@@ -35,7 +35,7 @@ export struct ArticleDetailsPage {
   }
 
   getParams() : ArticleBean {
-    const title = router.getParams() as RouterParams<ArticleBean>
-    return title.data
+    const data = router.getParams() as RouterParams<ArticleBean>
+    return data.data
   }
 }
