@@ -1,6 +1,8 @@
 import { Constants } from '../common/Constants'
 import { TitleBar } from '../widget/TitleBar'
 import { router } from '@kit.ArkUI'
+import { AppCache } from '@ohos/lib_common/src/main/ets/utils/AppCache'
+import { ToastUtil } from '@pura/harmony-utils'
 
 /**
  * 我的分享页
@@ -23,6 +25,10 @@ export struct MySharedPage {
         title: $r('app.string.my_share'),
         rightImg: $r('app.media.ic_add'),
         onRightImgClick: (event: ClickEvent) => {
+          if (AppCache.get().getUserPublicName() == "") {
+            ToastUtil.showLong($r('app.string.please_log_in_and_try_again'))
+            return
+          }
           router.pushUrl({ url: "pages/ShareArticlePage" })
         }
       })

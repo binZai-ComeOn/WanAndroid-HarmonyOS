@@ -9,6 +9,8 @@ import { ArticleBean } from '@ohos/lib_common/src/main/ets/bean/ArticleBean'
 import { ArticleItem } from '../../../widget/ArticleItem'
 import AppUtils from '@ohos/lib_common/src/main/ets/utils/AppUtils'
 import { RouterParams } from '../../../bean/RouterParams'
+import { AppCache } from '@ohos/lib_common/src/main/ets/utils/AppCache'
+import { ToastUtil } from '@pura/harmony-utils'
 
 /**
  * 广场页
@@ -35,6 +37,10 @@ export struct SquarePage {
         rightImg: $r('app.media.ic_add'),
         iconSpace: true,
         onRightImgClick: () => {
+          if (AppCache.get().getUserPublicName() == "") {
+            ToastUtil.showLong($r('app.string.please_log_in_and_try_again'))
+            return
+          }
           router.pushUrl({ url: "pages/ShareArticlePage" })
         }
       })

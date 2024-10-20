@@ -26,4 +26,8 @@ export abstract class MMKVUtil {
   getBool(key: string) {
     return this.mmkv.decodeBool(key, false)
   }
+
+  clean() {
+    this.mmkv.clearAll()
+  }
 }
