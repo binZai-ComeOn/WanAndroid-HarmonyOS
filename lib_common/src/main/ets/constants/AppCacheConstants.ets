@@ -1,4 +1,5 @@
 export class AppCacheConstants {
+  static Cookie = "Cookie"
   static ExtraKey = "ExtraKey"
   static UserCoinCount = "UserCoinCount"
   static UserId = "UserId"

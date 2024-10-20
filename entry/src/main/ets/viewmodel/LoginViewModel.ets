@@ -6,11 +6,11 @@ import { ApiInterface } from "@ohos/lib_common/src/main/ets/network/ApiInterface
 
 @Observed
 export class LoginViewModel {
-  login(username: String, password: String): Promise<BaseResponse<LoginBean>> {
+  login(username: string, password: string): Promise<BaseResponse<LoginBean>> {
     return new Promise((resolve: Function) => {
       httpRequestPost<BaseResponse<LoginBean>>(ApiInterface.login
-        .replace("{username}", username.toString())
-        .replace("{password}", password.toString()), "")
+        .replace("{username}", username)
+        .replace("{password}", password))
         .then((data: ResponseResult<BaseResponse<LoginBean>>) => {
           resolve(data);
         });

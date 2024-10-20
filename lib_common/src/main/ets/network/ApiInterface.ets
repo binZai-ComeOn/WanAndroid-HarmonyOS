@@ -20,12 +20,14 @@ export class ApiInterface {
    */
   static coinRank = "/coin/rank/{page}/json"
 
+  static coinListLink = "/lg/coin/list"
+
   /**
    * 获取个人积分列表，需要登录后访问
    * https://www.wanandroid.com//lg/coin/list/1/json
    * @param page 页码 从1开始
    */
-  static coinList = "/lg/coin/list/{page}/json"
+  static coinList = `${ApiInterface.coinListLink}/{page}/json`
 
   static articleQuery = "/article/query/{page}/json"
 
@@ -88,13 +90,17 @@ export class ApiInterface {
    */
   static projectList = "/project/list/{page}/json?cid="
 
+  static loginLink = "/user/login"
+
   /**
    * 登录
    * https://www.wanandroid.com/user/login
    * @param username
    * @param password
    */
-  static login = "/user/login?username={username}&password={password}"
+  static login = `${ApiInterface.loginLink}?username={username}&password={password}`
+
+  static registerLink = "/user/register"
 
   /**
    * 注册
@@ -103,7 +109,7 @@ export class ApiInterface {
    * @param password
    * @param repassword
    */
-  static register = "/user/register?username={username}&password={password}&repassword={repassword}"
+  static register = `${ApiInterface.registerLink}?username={username}&password={password}&repassword={repassword}`
 
   /**
    * 获取个人积分，需要登录后访问
@@ -111,18 +117,24 @@ export class ApiInterface {
    */
   static userinfo =  "/user/lg/userinfo/json"
 
+  static collectListLink = "/lg/collect/list"
+
   /**
    * 收藏文章列表
    * https://www.wanandroid.com/lg/collect/list/0/json
    */
-  static collectList = "/lg/collect/list/{page}/json"
+  static collectList = `${ApiInterface.collectListLink}/{page}/json`
+
+  static privateArticlesLink = "/user/lg/private_articles"
 
   /**
    * 自己的分享的文章列表
    * https://wanandroid.com/user/lg/private_articles/1/json
    * @param page 页码 从1开始
    */
-  static privateArticles = "/user/lg/private_articles/{page}/json"
+  static privateArticles = `${ApiInterface.privateArticlesLink}/{page}/json`
+
+  static addArticleLink = "/lg/user_article/add/json"
 
   /**
    * 分享文章
@@ -130,7 +142,7 @@ export class ApiInterface {
    * @param title
    * @param link
    */
-  static addArticle =  "/lg/user_article/add/json?title={title}&link={link}"
+  static addArticle =  `${ApiInterface.addArticleLink}?title={title}&link={link}`
 
   /**
    * 首页banner

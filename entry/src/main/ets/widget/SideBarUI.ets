@@ -3,14 +3,31 @@ import { Constants } from '../common/Constants'
 import { FunctionsItem } from './FunctionsItem'
 import { TitleBar } from './TitleBar'
 import { promptAction, router } from '@kit.ArkUI'
+import { AppCache } from '@ohos/lib_common/src/main/ets/utils/AppCache'
+import HomeViewModel from '../viewmodel/HomeViewModel'
+import { UserInfoBean } from '@ohos/lib_common/src/main/ets/bean/UserInfoBean'
 
 @Preview
+@Entry
 @Component
 export struct SideBarUI {
-  username: string = "去登录"
+  @State username: string = "去登录"
   gradle: string = "--"
   ranking: string = "--"
   @State functions: Array<SideBarItem> = Constants.SIDE_BAR_LIST
+  @State rank: string = "0"
+  @State level: number = 0
+
+  aboutToAppear() {
+    this.username = AppCache.get().getUserNickname()
+    if (this.username != "") {
+      HomeViewModel.getUserInfo().then((data: UserInfoBean) => {
+        this.level = data.coinInfo.level
+        this.rank = data.coinInfo.rank
+        this.functions[0].subText = data.coinInfo.coinCount.toString()
+      })
+    }
+  }
 
   build() {
     Column() {

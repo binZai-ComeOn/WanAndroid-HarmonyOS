@@ -1,5 +1,5 @@
-import {MMKVUtil} from '@ohos/lib_common/src/main/ets/utils/MMKVUtil'
-import { AppCacheConstants } from '../common/AppCacheConstants'
+import {MMKVUtil} from './MMKVUtil'
+import { AppCacheConstants } from '../constants/AppCacheConstants'
 
 export class AppCache extends MMKVUtil{
   private static instance: AppCache;
@@ -60,5 +60,13 @@ export class AppCache extends MMKVUtil{
 
   getUserCollectIds() : number{
     return this.getNumber(AppCacheConstants.UserCollectIds)
+  }
+
+  getCookies() : string {
+    return this.getString(AppCacheConstants.Cookie)
+  }
+
+  setCookies(value: string) {
+    this.setString(AppCacheConstants.Cookie, value)
   }
 }

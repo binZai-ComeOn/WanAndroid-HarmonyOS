@@ -6,7 +6,7 @@ import { JSONUtil, ToastUtil } from '@pura/harmony-utils'
 import BaseResponse from '@ohos/lib_common/src/main/ets/bean/BaseResponse'
 import { LoginBean } from '@ohos/lib_common/src/main/ets/bean/LoginBean'
 import { MMKV } from '@ohos/mmkv'
-import { AppCache } from '../utils/AppCache'
+import { AppCache } from '@ohos/lib_common/src/main/ets/utils/AppCache'
 
 /**
  * 登录页面
@@ -128,7 +128,7 @@ export struct LoginPage {
       .width(Constants.FULL_WIDTH)
       .onClick(() => {
         console.log('ButtonType.Normal'+this.username+",,"+this.password1)
-        if (this.checkParameter()) return
+        if (!this.checkParameter()) return
         LoginViewModel.login(this.username, this.password1).then((data : BaseResponse<LoginBean>) => {
           if (data.errorCode == 0) {
             let result = data.data
@@ -140,6 +140,7 @@ export struct LoginPage {
               AppCache.get().setUserCoinCount(result.coinCount)
             }
             ToastUtil.showToast($r('app.string.login_success'))
+            router.back()
           } else {
             ToastUtil.showToast(data.errorMsg)
           }

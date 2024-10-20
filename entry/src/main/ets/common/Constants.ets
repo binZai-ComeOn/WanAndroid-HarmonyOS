@@ -255,7 +255,7 @@ export class Constants {
    * Sidebar functions item list
    */
   static readonly SIDE_BAR_LIST: Array<SideBarItem> =
-    Array<SideBarItem>(new SideBarItem($r('app.media.ic_delete'), $r('app.string.integral'), "100"),
+    Array<SideBarItem>(new SideBarItem($r('app.media.ic_delete'), $r('app.string.integral'), "0"),
       new SideBarItem($r('app.media.ic_collect'), $r('app.string.collect'), ""),
       new SideBarItem($r('app.media.ic_my_share'), $r('app.string.my_share'), ""),
       new SideBarItem($r('app.media.ic_theme'), $r('app.string.theme'), ""),

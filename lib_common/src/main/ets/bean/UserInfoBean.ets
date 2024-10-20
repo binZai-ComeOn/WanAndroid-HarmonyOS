@@ -2,8 +2,8 @@ import { CoinInfo } from './CoinInfo'
 import { CollectArticleInfo } from './CollectArticleInfo'
 import { UserInfo } from './UserInfo'
 
-export interface UserInfoBean{
-  coinInfo: CoinInfo,
-  userInfo: UserInfo,
-  collectArticleInfo: CollectArticleInfo
+export class UserInfoBean{
+  coinInfo: CoinInfo = new CoinInfo()
+  userInfo: UserInfo = new UserInfo()
+  collectArticleInfo: CollectArticleInfo = new CollectArticleInfo()
 }
