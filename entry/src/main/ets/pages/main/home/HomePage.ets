@@ -7,8 +7,6 @@ import { ArrayList } from '@kit.ArkTS';
 import { BannerBean } from '@ohos/lib_common/src/main/ets/bean/BannerBean';
 import { ArticleBean } from '@ohos/lib_common/src/main/ets/bean/ArticleBean';
 import BaseResponseList from '@ohos/lib_common/src/main/ets/bean/BaseResponseList';
-import TimeUtil from '@ohos/lib_common/src/main/ets/utils/TimeUtil';
-import { Tag } from '@ohos/lib_common/src/main/ets/bean/Tag';
 import { ArticleItem } from '../../../widget/ArticleItem';
 import AppUtils from '@ohos/lib_common/src/main/ets/utils/AppUtils';
 import { RouterParams } from '../../../bean/RouterParams';

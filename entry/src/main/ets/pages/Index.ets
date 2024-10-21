@@ -6,6 +6,8 @@ import { ProjectsPage } from './main/project/ProjectsPage';
 import { SystemPage } from './main/system/SystemPage';
 import { SideBarTitleBar } from '../widget/SideBarTitleBar';
 import { TextRowFlow } from '../widget/TextRowFlow';
+import { LiveEventBus } from '@ohos/liveeventbus';
+import { BusConstants } from '../common/BusConstants';
 
 @Entry
 @Component
@@ -13,6 +15,10 @@ struct Index {
   @State currentIndex: number = 0;
   private tabsController: TabsController = new TabsController();
   @Provide isShowSideBar: boolean = false
+
+  onPageShow(): void {
+    LiveEventBus.get(BusConstants.OnPageShow).post("OnPageShow");
+  }
 
   build() {
     Column() {
