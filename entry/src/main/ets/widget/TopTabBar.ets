@@ -21,6 +21,7 @@ export struct TopTabBar {
   @State currentIndex: number = 0;
   @BuilderParam
   content: ((tabName: string) => void) = this.doNothingBuilder;
+  onChanged: ((index: number) => void) = this.doNothingIndex;
 
   build() {
     Tabs({ barPosition: BarPosition.Start }) {
@@ -38,6 +39,7 @@ export struct TopTabBar {
     .vertical(false)
     .onAnimationStart((_index: number, targetIndex: number, _event: TabsAnimationEvent) => {
       this.currentIndex = targetIndex;
+      this.onChanged(targetIndex)
     })
   }
 
@@ -51,10 +53,16 @@ export struct TopTabBar {
         .fontWeight(this.currentIndex === index ?
         Constants.TAB_BARS_SELECT_TEXT_FONT_WEIGHT : Constants.TAB_BARS_UN_SELECT_TEXT_FONT_WEIGHT)
         .fontColor($r('app.color.tab_selected_color'))
+        .onClick(() => {
+          this.currentIndex = index
+          this.onChanged(index)
+        })
     }
     .alignItems(HorizontalAlign.Start)
   }
 
   @Builder
   private doNothingBuilder(tabName: string) {};
+
+  private doNothingIndex(index: number) {};
 }

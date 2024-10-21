@@ -36,7 +36,7 @@ export struct ArticleItem {
               .border({ width: 0.5, radius: 2, color: $r('app.color.Red') })
             Blank().width(5)
           }
-          if (this.item.tags.length > 0) {
+          if (this.item.tags != undefined && this.item.tags.length > 0) {
             Text(this.item.tags[0].name)
               .border({ width: 0.5, radius: 2, color: $r('app.color.colorAccent') })
               .padding({

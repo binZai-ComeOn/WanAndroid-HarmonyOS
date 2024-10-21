@@ -6,6 +6,10 @@ import { TitleBar } from '../../../widget/TitleBar'
 import { TopTabBar } from '../../../widget/TopTabBar'
 import { ArticleBean } from '@ohos/lib_common/src/main/ets/bean/ArticleBean'
 import HomeViewModel from '../../../viewmodel/HomeViewModel'
+import { ArticleItem } from '../../../widget/ArticleItem'
+import BaseResponseList from '@ohos/lib_common/src/main/ets/bean/BaseResponseList'
+import AppUtils from '@ohos/lib_common/src/main/ets/utils/AppUtils'
+import { ArrayList } from '@kit.ArkTS'
 
 /**
  * 体系详情页
@@ -13,13 +17,24 @@ import HomeViewModel from '../../../viewmodel/HomeViewModel'
 @Entry
 @Component
 export struct ArticleTreesDetail {
-  @State data: KnowledgeSystemBean = new KnowledgeSystemBean()
+  @State params: KnowledgeSystemBean = new KnowledgeSystemBean()
   @State tabs: string[] = []
+  @State page : number = 0
+  @State articles: ArticleBean[] = []
 
   aboutToAppear(): void {
-    this.data = this.getParams()
-    this.data.children.forEach((item: KnowledgeSystemBean) => {
+    this.params = this.getParams()
+    this.params.children.forEach((item: KnowledgeSystemBean) => {
       this.tabs.push(item.name)
+    })
+    this.getInfoList(this.params.children[0].id)
+  }
+
+  getInfoList(id: number) {
+    HomeViewModel.getKnowledgeList(this.page, id).then((data: BaseResponseList<ArrayList<ArticleBean>>) => {
+      let list: ArticleBean[] = []
+      list = AppUtils.processingArticleData(data.datas)
+      this.articles = list
     })
   }
 
@@ -30,32 +45,30 @@ export struct ArticleTreesDetail {
         onLeftImgClick: (event: ClickEvent) => {
           router.back()
         },
-        title: this.data.name
+        title: this.params.name
       })
       TopTabBar({
         tabs: this.tabs,
+        onChanged: (index: number) => {
+          this.getInfoList(this.params.children[index].id)
+        },
         content: (tabName: string) => {
           this.TopTabBarContent(tabName)
         }
       })
-      List() {
-        ForEach(this.data.children, (item: ArticleBean, index?: number) => {
-          ListItem() {
-            // ArticleItem({
-            //   item: item, clickEnvent: () => {
-            //     router.pushUrl({ url: "pages/ArticleDetailsPage", params: new RouterParams(item) })
-            //   }
-            // })
-          }
-        }, (item: string) => item)
-      }.scrollBar(BarState.Auto)
     }.padding({ left: Constants.PAGE_MARGIN_LEFT, right: Constants.PAGE_MARGIN_RIGHT })
   }
 
   @Builder
   TopTabBarContent(tabName: string) {
-    ForEach(this.tabs, (index: number) => {
-
+    ForEach(this.articles, (item: ArticleBean) => {
+      ListItem() {
+        ArticleItem({
+          item: item, clickEnvent: () => {
+            router.pushUrl({ url: "pages/ArticleDetailsPage", params: new RouterParams(item) })
+          }
+        })
+      }
     })
   }
 

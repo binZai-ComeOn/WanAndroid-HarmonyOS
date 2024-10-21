@@ -162,7 +162,7 @@ export class HomeViewModel {
    */
   getKnowledgeList(page: number, cid: number): Promise<BaseResponseList<ArrayList<ArticleBean>>> {
     return new Promise((resolve: Function) => {
-      httpRequestGet<BaseResponseList<ArrayList<ArticleBean>>>(ApiInterface.articleList
+      httpRequestGet<BaseResponseList<ArrayList<ArticleBean>>>(ApiInterface.knowledgeList
         .replace("{page}", page.toString())
         .replace("{cid}", cid.toString()))
         .then((data: ResponseResult<BaseResponseList<ArrayList<ArticleBean>>>) => {
