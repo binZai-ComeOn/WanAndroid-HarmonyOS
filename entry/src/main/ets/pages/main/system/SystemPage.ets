@@ -18,6 +18,7 @@ import { ArticleTrees } from './ArticleTrees'
 export struct SystemPage {
   tabs: string[] = [];
   @State articleTree: KnowledgeSystemBean[] = []
+  @State currentIndex: number = 0;
 
   aboutToAppear(): void {
     HomeViewModel.getArticleTree().then((data: KnowledgeSystemBean[]) => {
@@ -42,18 +43,21 @@ export struct SystemPage {
       })
       TopTabBar({
         tabs: this.tabs,
-        content: (tabName: string) => {
-          this.TopTabBarContent(tabName)
+        onChanged: (index: number) => {
+          this.currentIndex = index
+        },
+        content: () => {
+          this.TopTabBarContent()
         }
       })
     }
   }
 
   @Builder
-  TopTabBarContent(tabName: string) {
-    if (this.tabs[0] == tabName) {
+  TopTabBarContent() {
+    if (this.currentIndex == 0) {
       ArticleTrees({ data: this.articleTree })
-    } else if (this.tabs[1] == tabName) {
+    } else if (this.currentIndex == 1) {
       NavigationPage()
     }
   }
